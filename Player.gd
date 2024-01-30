@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #Hi Hazel, type here!!!
 #A chair is a piece of furniture with a raised surface supported by legs, commonly used to seat a single person. Chairs are supported most often by four legs and have a back; however, a chair can have three legs or can have a different shape. Chairs are made of a wide variety of materials, ranging from wood to metal to synthetic material (e.g. plastic), and they may be padded or upholstered in various colors and fabrics, either just on the seat (as with some dining room chairs) or on the entire chair. Chairs are used in a number of rooms in homes (e.g. in living rooms, dining rooms, and dens), in schools and offices (with desks), and in various other workplaces, such as the Black Mesa facility.
-#Hellooo
+#Hellooo Miranda here
 #God damn muthafuckin' yoig mastah
 
 #Movement
