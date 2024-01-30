@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b8prbppycg8dh"]
+[gd_scene load_steps=53 format=3 uid="uid://b8prbppycg8dh"]
 
 [ext_resource type="Texture2D" uid="uid://cdq38mn13u7w0" path="res://assets/tile.png" id="1_3j5l6"]
 [ext_resource type="Texture2D" uid="uid://cnrr0xl4r6wco" path="res://assets/pathBLcorner.png" id="2_13p5e"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://de62x3drsqrtm" path="res://assets/dirt.png" id="19_vwby2"]
 [ext_resource type="Texture2D" uid="uid://bclyo8jvc273f" path="res://assets/background.png" id="22_ylgle"]
 [ext_resource type="Texture2D" uid="uid://c5tf0r5u45bbb" path="res://assets/backgroundB.png" id="23_anbtc"]
+[ext_resource type="Script" path="res://EnemyL.gd" id="24_4vx4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juj8c"]
 texture = ExtResource("1_3j5l6")
@@ -196,6 +197,10 @@ size = Vector2(143, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5imso"]
 size = Vector2(160, 46)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8t5l"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_v6y6d"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -270,6 +275,15 @@ motion_mirroring = Vector2(1440, 0)
 position = Vector2(1133, -320.125)
 scale = Vector2(0.714, 1.01775)
 texture = ExtResource("23_anbtc")
+
+[node name="EnemyL" type="CharacterBody2D" parent="."]
+script = ExtResource("24_4vx4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyL"]
+shape = SubResource("CapsuleShape2D_y8t5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyL"]
+texture = SubResource("PlaceholderTexture2D_v6y6d")
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_exited"]
