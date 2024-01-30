@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+#Hi Hazel, type here!!!
+#
+
 #Movement
 var speed = 250.0
 var move = true
