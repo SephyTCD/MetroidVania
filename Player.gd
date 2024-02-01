@@ -132,7 +132,7 @@ func _physics_process(delta):
 			velocity.x = -300
 			faceLock = 1
 
-	if Input.is_action_just_released("wallRun") or is_on_wall():
+	if Input.is_action_just_released("wallRun"):
 		move = true
 
 		runAble = 0
