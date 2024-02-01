@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bclyo8jvc273f" path="res://assets/background.png" id="22_ylgle"]
 [ext_resource type="Texture2D" uid="uid://c5tf0r5u45bbb" path="res://assets/backgroundB.png" id="23_anbtc"]
 [ext_resource type="Script" path="res://EnemyL.gd" id="24_4vx4a"]
+[ext_resource type="Texture2D" uid="uid://bqki7w6ht8vto" path="res://icon.svg" id="25_aweld"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juj8c"]
 texture = ExtResource("1_3j5l6")
@@ -198,8 +199,8 @@ size = Vector2(143, 46)
 size = Vector2(160, 46)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8t5l"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_v6y6d"]
+radius = 29.0
+height = 58.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -280,10 +281,13 @@ texture = ExtResource("23_anbtc")
 script = ExtResource("24_4vx4a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyL"]
+position = Vector2(118, 214)
 shape = SubResource("CapsuleShape2D_y8t5l")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyL"]
-texture = SubResource("PlaceholderTexture2D_v6y6d")
+position = Vector2(118, 214)
+scale = Vector2(0.251953, 0.267578)
+texture = ExtResource("25_aweld")
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_exited"]
