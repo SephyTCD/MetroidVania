@@ -165,3 +165,6 @@ zoom = Vector2(2, 2)
 libraries = {
 "": SubResource("AnimationLibrary_1vlen")
 }
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(10, 0)
