@@ -30,6 +30,8 @@ var wallSlide = false
 var wallSlideGrav = 100
 var direction = 0
 
+#projectile
+var bullet = preload("res://projectile.tscn")
 
 # Get the gravity from the project settings so you can sync with rigid body nodes.
 var gravity = 1800
@@ -50,6 +52,21 @@ func _on_area_2d_body_exited(body):
 		runAble = 0
 	
 	#print("test2")
+
+func shoot():
+	if Input.is_action_just_pressed("shoot"):
+		print("bang")
+		var inst = bullet.instantiate()
+		get_parent().add_child(inst)
+		inst.global_position = $Marker2D.global_position
+		if facing == 1:
+			inst.speed *= 1
+			animations.play("paper_spin")
+			sprite.flip_h = false
+		if facing == 2:
+			inst.speed *= -1
+			animations.play("paper_spin")
+			sprite.flip_h = true
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -98,11 +115,19 @@ func _physics_process(delta):
 		
 		
 
+	#if Input.is_action_just_pressed("ui_right"):
+	#	facing = 2
+	#	$Marker2D.position.x = abs($Marker2D.position.x) * 1
+	#if Input.is_action_just_pressed("ui_left"):
+	#	facing = 1
+	#	$Marker2D.position.x = abs($Marker2D.position.x) * -1
 
 	if Input.is_action_just_pressed("ui_right"):
 		facing = 1
+		$Marker2D.position.x = abs($Marker2D.position.x) * 1
 	if Input.is_action_just_pressed("ui_left"):
 		facing = 2
+		$Marker2D.position.x = abs($Marker2D.position.x) * -1
 
 #wall slide
 	if is_on_wall() and !is_on_floor():
@@ -177,5 +202,5 @@ func _physics_process(delta):
 	#print(moveLock)
 
 
-
+	shoot()
 	move_and_slide()
