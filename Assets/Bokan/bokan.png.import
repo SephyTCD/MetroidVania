@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdq38mn13u7w0"
-path="res://.godot/imported/tile.png-455dd1073ac41712b0ee435e5393be66.ctex"
+uid="uid://b4owgusmsp41m"
+path="res://.godot/imported/bokan.png-cc1dbdeade1b0721970d32638b8df619.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tile.png"
-dest_files=["res://.godot/imported/tile.png-455dd1073ac41712b0ee435e5393be66.ctex"]
+source_file="res://Assets/Bokan/bokan.png"
+dest_files=["res://.godot/imported/bokan.png-cc1dbdeade1b0721970d32638b8df619.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

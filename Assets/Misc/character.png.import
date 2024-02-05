@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn3mbc41m4e0l"
-path="res://.godot/imported/pathtop.png-03eb63750589cfc91f214a66d95e9371.ctex"
+uid="uid://e2cjomymaaqn"
+path="res://.godot/imported/character.png-310d40f0500f5e0a427153616aef0c5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pathtop.png"
-dest_files=["res://.godot/imported/pathtop.png-03eb63750589cfc91f214a66d95e9371.ctex"]
+source_file="res://Assets/Misc/character.png"
+dest_files=["res://.godot/imported/character.png-310d40f0500f5e0a427153616aef0c5f.ctex"]
 
 [params]
 

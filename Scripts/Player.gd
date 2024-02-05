@@ -6,6 +6,7 @@ extends CharacterBody2D
 #Hellooo Miranda here
 #God damn muthafuckin' yoig mastah
 #webhook test lmao
+#i'm here too
 
 #Movement
 var speed = 250.0
@@ -31,6 +32,16 @@ var wallSlide = false
 var wallSlideGrav = 100
 var direction = 0
 
+#health
+var currentHealth = 0
+var maxHealth = 100
+signal playerDamaged(amount)
+signal playerHealed(amount)
+signal updatePlayerHealthBar(newValue)
+signal playerDied()
+
+@onready var playerHealthBar = get_node("UI/PlayerHealthBar")
+
 #projectile
 var bullet = preload("res://projectile.tscn")
 
@@ -39,6 +50,10 @@ var gravity = 1800
 
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	currentHealth = maxHealth;
 
 func _on_area_2d_body_entered(body):
 	#print("test")
@@ -68,6 +83,37 @@ func shoot():
 			inst.speed *= -1
 			animations.play("paper_spin")
 			sprite.flip_h = true
+
+#health stuff
+#(going to add knockback later)
+func _take_damage(damageAmount):
+	currentHealth -= damageAmount
+	
+	if currentHealth <= 0:
+		currentHealth = 0
+		_die()
+	
+	playerDamaged.emit(damageAmount)
+	_update_player_health_bar()
+
+func _get_healed(healingAmount):
+	currentHealth += healingAmount
+	
+	if currentHealth > maxHealth:
+		currentHealth = maxHealth
+	
+	playerHealed.emit(healingAmount)
+	_update_player_health_bar()
+
+#does nothing yet, just resets the health
+func _die():
+	emit_signal("playerDied")
+	
+	currentHealth = maxHealth;
+	_update_player_health_bar()
+
+func _update_player_health_bar():
+	updatePlayerHealthBar.emit(currentHealth)
 
 func _physics_process(delta):
 	# Add the gravity.

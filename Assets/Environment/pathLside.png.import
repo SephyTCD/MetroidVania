@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bepygj6r7f35a"
-path="res://.godot/imported/pathLside.png-030526d92a43d74c38ad0573786e5014.ctex"
+path="res://.godot/imported/pathLside.png-7cdb8d99ca313d4f1fe0f1d3027a07ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pathLside.png"
-dest_files=["res://.godot/imported/pathLside.png-030526d92a43d74c38ad0573786e5014.ctex"]
+source_file="res://Assets/Environment/pathLside.png"
+dest_files=["res://.godot/imported/pathLside.png-7cdb8d99ca313d4f1fe0f1d3027a07ca.ctex"]
 
 [params]
 

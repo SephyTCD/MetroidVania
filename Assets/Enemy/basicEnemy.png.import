@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qweimvxdyyhh"
-path="res://.godot/imported/pathBRcorner.png-345989a8c6ea9d8c250c7c8dedc1d31b.ctex"
+uid="uid://cdakiu5pt5iti"
+path="res://.godot/imported/basicEnemy.png-19767892c6465eefe243ac1873b262a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pathBRcorner.png"
-dest_files=["res://.godot/imported/pathBRcorner.png-345989a8c6ea9d8c250c7c8dedc1d31b.ctex"]
+source_file="res://Assets/Enemy/basicEnemy.png"
+dest_files=["res://.godot/imported/basicEnemy.png-19767892c6465eefe243ac1873b262a5.ctex"]
 
 [params]
 

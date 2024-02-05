@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ber2o1es0xdk5"]
 
-[ext_resource type="Script" path="res://projectile.gd" id="1_m5aye"]
-[ext_resource type="Texture2D" uid="uid://bliesmr6xocge" path="res://assets/paper.png" id="2_yvctb"]
+[ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_m5aye"]
+[ext_resource type="Texture2D" uid="uid://bliesmr6xocge" path="res://Assets/Misc/paper.png" id="2_yvctb"]
 
 [sub_resource type="Animation" id="Animation_acyeo"]
 length = 0.001

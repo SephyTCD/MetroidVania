@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chxtv44oke3nv"
-path="res://.godot/imported/pathPBRcorner.png-a5c02ab0ce5986139a48d7293bfbb556.ctex"
+uid="uid://ccswdmjetk8af"
+path="res://.godot/imported/rundirtB.png-c8ee8a4fb5ef945fe3fe613296feb996.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pathPBRcorner.png"
-dest_files=["res://.godot/imported/pathPBRcorner.png-a5c02ab0ce5986139a48d7293bfbb556.ctex"]
+source_file="res://Assets/Environment/rundirtB.png"
+dest_files=["res://.godot/imported/rundirtB.png-c8ee8a4fb5ef945fe3fe613296feb996.ctex"]
 
 [params]
 

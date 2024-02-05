@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddidhea2xsgsd"
-path="res://.godot/imported/rundirt.png-a4a181c8d92af1d29047fc8ba77440c7.ctex"
+uid="uid://dc4831keovacm"
+path="res://.godot/imported/rundirtT.png-2a4012dc44a3dce2333cde4947436cf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rundirt.png"
-dest_files=["res://.godot/imported/rundirt.png-a4a181c8d92af1d29047fc8ba77440c7.ctex"]
+source_file="res://Assets/Environment/rundirtT.png"
+dest_files=["res://.godot/imported/rundirtT.png-2a4012dc44a3dce2333cde4947436cf7.ctex"]
 
 [params]
 

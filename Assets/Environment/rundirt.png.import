@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4owgusmsp41m"
-path="res://.godot/imported/bokan.png-e2b04745d2d12e2339cede13839342d4.ctex"
+uid="uid://ddidhea2xsgsd"
+path="res://.godot/imported/rundirt.png-d938231420c882cc9ee5e2e72045ef32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bokan.png"
-dest_files=["res://.godot/imported/bokan.png-e2b04745d2d12e2339cede13839342d4.ctex"]
+source_file="res://Assets/Environment/rundirt.png"
+dest_files=["res://.godot/imported/rundirt.png-d938231420c882cc9ee5e2e72045ef32.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

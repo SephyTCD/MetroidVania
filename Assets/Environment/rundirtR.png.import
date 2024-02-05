@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5laabtwqohgy"
-path="res://.godot/imported/pathbottom.png-1f72fbae5bce42a166ba84bfe3b5ad86.ctex"
+uid="uid://gtp023r4202b"
+path="res://.godot/imported/rundirtR.png-d0e7ea02c9e4eb0a7ce514fde264c43e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pathbottom.png"
-dest_files=["res://.godot/imported/pathbottom.png-1f72fbae5bce42a166ba84bfe3b5ad86.ctex"]
+source_file="res://Assets/Environment/rundirtR.png"
+dest_files=["res://.godot/imported/rundirtR.png-d0e7ea02c9e4eb0a7ce514fde264c43e.ctex"]
 
 [params]
 
