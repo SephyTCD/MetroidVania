@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://brdi6syqyxlit"]
+[gd_scene load_steps=8 format=3 uid="uid://brdi6syqyxlit"]
 
 [ext_resource type="Script" path="res://Scripts/basic_enemy.gd" id="1_b5clg"]
 [ext_resource type="Texture2D" uid="uid://cdakiu5pt5iti" path="res://Assets/Enemy/basicEnemy.png" id="1_w8nr4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4n7g"]
+size = Vector2(15, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_he8pb"]
 size = Vector2(15, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eaqfc"]
@@ -50,6 +53,12 @@ wait_time = 6.501
 one_shot = true
 autostart = true
 
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_he8pb")
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -61,5 +70,6 @@ libraries = {
 }
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
