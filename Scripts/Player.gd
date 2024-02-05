@@ -239,10 +239,10 @@ func _physics_process(delta):
 			animations.play("jump_right")
 
 	if wallRunning == 1:
-		if direction > 0:
+		if facing == 1:
 			animations.play("wallrun_right")
 			sprite.flip_h = false
-		if direction < 0:
+		if facing == 2:
 			animations.play("wallrun_right")
 			sprite.flip_h = true
 	#print(runTime)
