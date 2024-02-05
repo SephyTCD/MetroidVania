@@ -3,6 +3,7 @@ extends CharacterBody2D
 var condition = 1
 var target = null
 var health = 5
+var damage = 20
 
 var speed = 100
 var gravity = 1800
@@ -29,7 +30,7 @@ func _physics_process(delta):
 		queue_free()
 
 	if condition == 1:
-		print("neutral")
+		#print("neutral")
 		
 		velocity.y += gravity * delta
 		
@@ -116,15 +117,19 @@ func _on_area_2d_body_entered(body):
 	condition = 2
 	if body.name == "Player":
 		target = body
-		print("check2")
+		#print("check2")
 
 func _on_area_2d_body_exited(body):
 	condition = 1
 	if body.name == "Player":
 		target = null
-		print("check3")
+		#print("check3")
 
 func _take_damage():
 	print("hit")
 	health = health - 1
 	print(health)
+
+func _on_hitbox_body_entered(body):
+	if body.has_method("_take_damage"):
+		body._take_damage(damage)
