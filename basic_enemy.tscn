@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4n7g"]
 size = Vector2(15, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8clv"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_eaqfc"]
+radius = 51.0882
 
 [sub_resource type="Animation" id="Animation_b5ecr"]
 resource_name = "move"
@@ -53,7 +53,7 @@ autostart = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_i8clv")
+shape = SubResource("CircleShape2D_eaqfc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -61,3 +61,5 @@ libraries = {
 }
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
