@@ -22,7 +22,7 @@ var facing = 1
 var faceLock = 0
 
 #WallRun
-var runTime = 100
+var runTime = 1
 var runAble = 1
 var runUse = 1
 var onWall = 0
@@ -88,6 +88,7 @@ func shoot():
 #(going to add knockback later)
 func _take_damage(damageAmount):
 	currentHealth -= damageAmount
+	print(currentHealth)
 	
 	if currentHealth <= 0:
 		currentHealth = 0
@@ -191,12 +192,13 @@ func _physics_process(delta):
 		
 
 #Wall Running
-	if Input.is_action_pressed("wallRun") and is_on_floor() == false and runTime != 0 and runAble == 1 and onWall == 1:
+	if Input.is_action_pressed("wallRun") and is_on_floor() == false and runTime > 0 and runAble == 1 and onWall == 1:
 		velocity.y = 0
 		wallRunning = 1
 		runUse = 0
 		move = false
-		runTime -= 1
+		runTime -= delta
+		print(runTime)
 		if facing == 1 and faceLock == 0:
 			velocity.x = 300
 			faceLock = 1
@@ -212,7 +214,7 @@ func _physics_process(delta):
 
 	if is_on_floor():
 		faceLock = 0
-		runTime = 100
+		runTime = 1
 		runAble = 1
 		runUse = 1
 
@@ -247,7 +249,6 @@ func _physics_process(delta):
 			sprite.flip_h = true
 	#print(runTime)
 	#print(moveLock)
-
 
 	shoot()
 	move_and_slide()
