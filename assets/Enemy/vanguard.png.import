@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bliesmr6xocge"
-path="res://.godot/imported/paper.png-472a4c0d42812b78562f1785e81c5826.ctex"
+uid="uid://c4y8tyajhj543"
+path="res://.godot/imported/vanguard.png-6d7d2def38d04f1016dc3b185c0ac092.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Misc/paper.png"
-dest_files=["res://.godot/imported/paper.png-472a4c0d42812b78562f1785e81c5826.ctex"]
+source_file="res://assets/Enemy/vanguard.png"
+dest_files=["res://.godot/imported/vanguard.png-6d7d2def38d04f1016dc3b185c0ac092.ctex"]
 
 [params]
 

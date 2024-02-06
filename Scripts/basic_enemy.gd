@@ -125,8 +125,8 @@ func _on_area_2d_body_exited(body):
 		target = null
 		#print("check3")
 
-func _take_damage():
-	print("hit")
+func _take_damage(damageamount):
+	print("enemy hit")
 	health = health - 1
 	print(health)
 
