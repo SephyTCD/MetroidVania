@@ -117,6 +117,14 @@ func _update_player_health_bar():
 	updatePlayerHealthBar.emit(currentHealth)
 
 func _physics_process(delta):
+	# i can't get this to work man
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+		#var node = collision.get_collider().name
+		#if node == "carrier_collision":
+			#node.floor_snap_stuff()
+	
+	
 	# Add the gravity.
 	velocity.y += gravity * delta
 
