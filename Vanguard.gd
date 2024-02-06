@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+
 var condition = 1
 var target = null
 var health = 5
