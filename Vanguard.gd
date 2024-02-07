@@ -6,8 +6,11 @@ var health = 5
 var damage = 20
 
 var speed = 100
+var jumpSpeed = -500.0
+var jumpReady = 1
 var gravity = 1800
-var direction = 1
+var direction = 0
+var facing = 1
 var dirLock = 0
 var limit1 = 0
 var limit2 = 0
@@ -26,13 +29,21 @@ var d1Tick = 60
 
 func _physics_process(delta):
 
+	if target == null:
+		velocity.x = 100
+
+	if target != null and is_on_floor():
+		velocity.x = 0
+
 	if health == 0:
 		queue_free()
 
+	velocity.y += gravity * delta
+
 	if condition == 1:
 		#print("neutral")
-		
-		velocity.y += gravity * delta
+		speed = 100
+
 		
 		if walkLength != 0:
 			walkLength -= 1
@@ -45,17 +56,17 @@ func _physics_process(delta):
 
 		if tick == 1 and walkLength == 0:
 			if limit1 != 3 and limit2 != 3:
-				direction = randi_range(1,2)
+				facing = randi_range(1,2)
 				dirLock = 1
 			if limit1 == 3:
-				direction = 2
+				facing = 2
 				dirLock = 1
 			if limit2 == 3:
-				direction = 1
+				facing = 1
 				dirLock = 1
 			#print("test1")
 
-		if direction == 1 and dirLock == 1 and limit1 != 3:
+		if facing == 1 and dirLock == 1 and limit1 != 3:
 			if d1Tick != 0:
 				velocity.x = 50
 				d1Tick -= 1
@@ -68,7 +79,7 @@ func _physics_process(delta):
 				print(d1Tick)
 				#print("test2")
 
-		if direction == 2 and dirLock == 1 and limit2 != 3:
+		if facing == 2 and dirLock == 1 and limit2 != 3:
 			if d2Tick != 0:
 				velocity.x = -50
 				d2Tick -= 1
@@ -96,10 +107,10 @@ func _physics_process(delta):
 			#print("hooooold up")
 #	print(tick)
 
-			if direction == 1:
+			if facing == 1:
 				animations.play("move")
 				sprite.flip_h = false
-			if  direction == 2:
+			if  facing == 2:
 				animations.play("move")
 				sprite.flip_h = true
 			
@@ -107,17 +118,43 @@ func _physics_process(delta):
 				animations.play("jmove")
 	move_and_slide()
 
+#///////////////////////////////////////////////////////////////////////////////
+
+func _aggro_condition():
+	speed = 300
+	if is_on_floor():
+		_on_timer_timeout()
+	move_and_slide()
+
+func _direction():
+	if target:
+		direction = sign(target.global_position.x - global_position.x)
+	print(direction, "D")
+
+func _jump():
+	speed = 300
+	velocity.y = jumpSpeed
+	velocity.x = direction * speed
+
 	if condition == 2:
-		if target:
-			var direction = sign(target.global_position.x - global_position.x)
-			velocity.x = direction * speed
-			move_and_slide()
+		
+		speed = 300
+		#_on_timer_timeout()
+		move_and_slide()
+
+func _on_timer_timeout():
+	if target != null:
+		_direction()
+		_jump()
+
+#//////////////////////////////////////////////////////////////////////////////
 
 func _on_site_body_entered(body):
 	condition = 2
 	if body.name == "Player":
 		target = body
-		#print("check2")
+		print("check2")
+	_aggro_condition()
 
 func _on_site_body_exited(body):
 	condition = 1
@@ -125,9 +162,11 @@ func _on_site_body_exited(body):
 		target = null
 		#print("check3")
 
-func _take_damage():
+#//////////////////////////////////////////////////////////////////////////////
+
+func _take_damage(damageamount):
 	print("hit")
-	health = health - 1
+	health = health - damageamount
 	print(health)
 
 func _on_hitbox_body_entered(body):

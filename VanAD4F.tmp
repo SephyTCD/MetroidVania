@@ -10,7 +10,7 @@ size = Vector2(59, 42)
 size = Vector2(59, 42)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqybl"]
-radius = 154.0
+radius = 90.0
 
 [node name="Vanguard" type="CharacterBody2D"]
 collision_layer = 4

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4y8tyajhj543"
-path="res://.godot/imported/vanguard.png-6d7d2def38d04f1016dc3b185c0ac092.ctex"
+path="res://.godot/imported/vanguard.png-a54160c02d6111ad1d143d1ca372e5fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/vanguard.png"
-dest_files=["res://.godot/imported/vanguard.png-6d7d2def38d04f1016dc3b185c0ac092.ctex"]
+source_file="res://Assets/Enemy/vanguard.png"
+dest_files=["res://.godot/imported/vanguard.png-a54160c02d6111ad1d143d1ca372e5fe.ctex"]
 
 [params]
 
