@@ -6,7 +6,7 @@ var health = 5
 var damage = 20
 
 var speed = 100
-var jumpSpeed = -500.0
+var jumpSpeed = -400.0
 var jumpReady = 1
 var gravity = 1800
 var direction = 0
