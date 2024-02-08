@@ -143,6 +143,7 @@ func _jump():
 		move_and_slide()
 
 func _on_timer_timeout():
+	print("hop")
 	if target != null:
 		_direction()
 		_jump()

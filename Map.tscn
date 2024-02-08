@@ -1,9 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://b8prbppycg8dh"]
+[gd_scene load_steps=56 format=3 uid="uid://b8prbppycg8dh"]
 
 [ext_resource type="Texture2D" uid="uid://cdq38mn13u7w0" path="res://Assets/Misc/tile.png" id="1_3j5l6"]
 [ext_resource type="Texture2D" uid="uid://cnrr0xl4r6wco" path="res://Assets/Environment/pathBLcorner.png" id="2_13p5e"]
 [ext_resource type="PackedScene" uid="uid://ycictb4iya0a" path="res://Player.tscn" id="2_q1q7t"]
-[ext_resource type="PackedScene" uid="uid://brdi6syqyxlit" path="res://TSCN/basic_enemy.tscn" id="3_7pbne"]
+[ext_resource type="PackedScene" uid="uid://brdi6syqyxlit" path="res://basic_enemy.tscn" id="3_7pbne"]
 [ext_resource type="Texture2D" uid="uid://b5laabtwqohgy" path="res://Assets/Environment/pathbottom.png" id="3_e51qv"]
 [ext_resource type="Texture2D" uid="uid://qweimvxdyyhh" path="res://Assets/Environment/pathBRcorner.png" id="4_k3k0v"]
 [ext_resource type="Texture2D" uid="uid://ci3lnurdich6i" path="res://Assets/Environment/pathPBLcorner.png" id="5_4ssle"]
@@ -26,7 +26,8 @@
 [ext_resource type="Script" path="res://Scripts/EnemyL.gd" id="24_4vx4a"]
 [ext_resource type="Texture2D" uid="uid://bqki7w6ht8vto" path="res://icon.svg" id="25_aweld"]
 [ext_resource type="Script" path="res://Scripts/PlayerHealthbar.gd" id="26_v8heh"]
-[ext_resource type="PackedScene" uid="uid://b05cesnte6rqq" path="res://TSCN/Vanguard.tscn" id="27_jtvpi"]
+[ext_resource type="PackedScene" uid="uid://b05cesnte6rqq" path="res://Vanguard.tscn" id="27_jtvpi"]
+[ext_resource type="PackedScene" uid="uid://duy8jeban4b2r" path="res://hunter.tscn" id="28_4j0ps"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juj8c"]
 texture = ExtResource("1_3j5l6")
@@ -312,6 +313,9 @@ texture = ExtResource("25_aweld")
 
 [node name="Vanguard" parent="." instance=ExtResource("27_jtvpi")]
 position = Vector2(716, -19)
+
+[node name="Hunter" parent="." instance=ExtResource("28_4j0ps")]
+position = Vector2(654, -24)
 
 [connection signal="playerDamaged" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_damaged"]
 [connection signal="playerHealed" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_healed"]
