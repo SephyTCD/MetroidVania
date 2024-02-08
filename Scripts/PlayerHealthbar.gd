@@ -1,7 +1,5 @@
 extends ProgressBar
 
-@onready var player = get_node("Player")
-
 func _on_player_player_damaged(amount):
 	value -= amount
 

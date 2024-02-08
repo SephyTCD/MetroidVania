@@ -21,7 +21,7 @@ var jump_speed = -500.0
 @export var wallJumpHorizontalSpeed = 300
 #handles making the player hang on the wall for a split-second when wall jumping
 var wallJumpTimer: float = 0
-@export var wallJumpTime: float = .075
+@export var wallJumpTime: float = .1
 #the direction the player was holding when they pressed jump, not the direction the jump should go
 var wallJumpDir = ""
 
@@ -150,26 +150,25 @@ func _physics_process(delta):
 	# Add the gravity.
 	velocity.y += gravity * delta
 	
-	#handle wall jump timer
-	if wallJumpTimer != 0 and wallJumpDir != "":
+	#handle wall jump
+	if wallJumpTimer > 0:
 		wallJumpTimer -= delta
 	
-	if wallJumpTimer <= 0 and wallJumpDir == "right":
-		wallJumpDir = ""
+	if wallJumpTimer <= 0 and wallJumpDir != "":
 		freezeMovement = false
 		
 		velocity.y = wallJumpVerticalSpeed
 		moveLock = 10
-		velocity.x = -wallJumpHorizontalSpeed
-	
-	if wallJumpTimer <= 0 and wallJumpDir == "left":
-		wallJumpDir = ""
-		freezeMovement = false
 		
-		velocity.y = wallJumpVerticalSpeed
-		moveLock = 10
-		velocity.x = wallJumpHorizontalSpeed
+		if wallJumpDir == "right":
+			velocity.x = -wallJumpHorizontalSpeed
+		
+		if wallJumpDir == "left":
+			velocity.x = wallJumpHorizontalSpeed
+		
+		wallJumpDir = ""
 	
+	#handle jump
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			_jump()
@@ -192,7 +191,7 @@ func _physics_process(delta):
 	if moveLock == 0:
 		moveLock = 11
 	
-# Get the input direction / allow move controls when true.
+	# Get the input direction / allow move controls when true.
 	if moveLock == 11:
 		move = true
 	
@@ -211,6 +210,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_right"):
 		facing = 1
 		$Marker2D.position.x = abs($Marker2D.position.x) * 1
+	
 	if Input.is_action_just_pressed("ui_left"):
 		facing = 2
 		$Marker2D.position.x = abs($Marker2D.position.x) * -1
