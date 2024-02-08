@@ -76,14 +76,14 @@ func _physics_process(delta):
 				limit1 += 1
 				walkLength = 41
 				d1Tick = 60
-				print(d1Tick)
+				#print(d1Tick)
 				#print("test2")
 
 		if facing == 2 and dirLock == 1 and limit2 != 3:
 			if d2Tick != 0:
 				velocity.x = -50
 				d2Tick -= 1
-				print(d2Tick)
+				#print(d2Tick)
 			if d2Tick == 0:
 				velocity.x = 0
 				dirLock = 0
@@ -129,7 +129,6 @@ func _aggro_condition():
 func _direction():
 	if target:
 		direction = sign(target.global_position.x - global_position.x)
-	print(direction, "D")
 
 func _jump():
 	speed = 300
@@ -143,7 +142,6 @@ func _jump():
 		move_and_slide()
 
 func _on_timer_timeout():
-	print("hop")
 	if target != null:
 		_direction()
 		_jump()
@@ -154,7 +152,6 @@ func _on_site_body_entered(body):
 	condition = 2
 	if body.name == "Player":
 		target = body
-		print("check2")
 	_aggro_condition()
 
 func _on_site_body_exited(body):
@@ -166,10 +163,11 @@ func _on_site_body_exited(body):
 #//////////////////////////////////////////////////////////////////////////////
 
 func _take_damage(damageamount):
-	print("hit")
 	health = health - damageamount
 	print(health)
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("_take_damage"):
 		body._take_damage(damage)
+	if body.has_method("_crush"):
+		body._crush()

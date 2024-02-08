@@ -47,7 +47,6 @@ func _shoot():
 	get_parent().add_child(inst)
 	inst.global_position = $Marker2D.global_position
 	inst.velocity = (target.global_position - inst.global_position).normalized() * inst.speed
-	print("shoot")
 
 func _take_damage(damageAmount):
 	health = health - damageAmount

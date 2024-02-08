@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0oblrklmdvgh"]
+
+[ext_resource type="Script" path="res://bulwark.gd" id="1_krnjc"]
+[ext_resource type="Texture2D" uid="uid://b58nu3s5gmbvm" path="res://Assets/Enemy/bulwark.png" id="2_7ys44"]
+
+[node name="Bulwark" type="CharacterBody2D"]
+collision_layer = 7
+collision_mask = 3
+script = ExtResource("1_krnjc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_7ys44")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-56, -59, -56, 59, 56, 59, 56, 44, 18, 5, 18, -59)

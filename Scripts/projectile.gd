@@ -5,6 +5,7 @@ var direction = 1
 var speed = 500.0
 var time = .35
 var damage = 1
+var crush = 0
 
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -35,8 +36,14 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func _unlock():
+	crush = 1
+
 func _on_area_2d_body_entered(body):
 	print("entered")
 	if body.has_method("_take_damage"):
 		body._take_damage(damage)
 	queue_free()
+	if crush == 1:
+		if body.has_method("_crush"):
+			body._crush()

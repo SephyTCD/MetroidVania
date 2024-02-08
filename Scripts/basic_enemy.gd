@@ -65,14 +65,14 @@ func _physics_process(delta):
 				limit1 += 1
 				walkLength = 41
 				d1Tick = 60
-				print(d1Tick)
+				#print(d1Tick)
 				#print("test2")
 
 		if facing == 2 and dirLock == 1 and limit2 != 3:
 			if d2Tick != 0:
 				velocity.x = -50
 				d2Tick -= 1
-				print(d2Tick)
+				#print(d2Tick)
 			if d2Tick == 0:
 				velocity.x = 0
 				dirLock = 0
@@ -126,9 +126,9 @@ func _on_area_2d_body_exited(body):
 		#print("check3")
 
 func _take_damage(damageamount):
-	print("enemy hit")
+	#print("enemy hit")
 	health = health - damageamount
-	print(health)
+
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("_take_damage"):
