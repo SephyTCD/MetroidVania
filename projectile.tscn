@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ber2o1es0xdk5"]
 
 [ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_m5aye"]
-[ext_resource type="Texture2D" uid="uid://bliesmr6xocge" path="res://assets/Misc/paper.png" id="2_yvctb"]
+[ext_resource type="Texture2D" uid="uid://bliesmr6xocge" path="res://Assets/Misc/paper.png" id="2_yvctb"]
 
 [sub_resource type="Animation" id="Animation_acyeo"]
 length = 0.001
@@ -57,7 +57,7 @@ libraries = {
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_l5jnl")

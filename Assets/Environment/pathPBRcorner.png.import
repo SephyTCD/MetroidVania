@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chxtv44oke3nv"
-path="res://.godot/imported/pathPBRcorner.png-b80107e0fddf94b5fa10b89d7761c7c7.ctex"
+path="res://.godot/imported/pathPBRcorner.png-d09967f1f760d15489855e96dde78681.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Environment/pathPBRcorner.png"
-dest_files=["res://.godot/imported/pathPBRcorner.png-b80107e0fddf94b5fa10b89d7761c7c7.ctex"]
+source_file="res://Assets/Environment/pathPBRcorner.png"
+dest_files=["res://.godot/imported/pathPBRcorner.png-d09967f1f760d15489855e96dde78681.ctex"]
 
 [params]
 

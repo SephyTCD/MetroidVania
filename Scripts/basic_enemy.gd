@@ -7,7 +7,6 @@ var damage = 20
 
 var speed = 100
 var gravity = 1800
-var direction = 1
 var dirLock = 0
 var limit1 = 0
 var limit2 = 0
@@ -15,6 +14,7 @@ var tick = 120
 var walkLength = 41
 var d2Tick = 60
 var d1Tick = 60
+var facing = 1
 
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -45,17 +45,17 @@ func _physics_process(delta):
 
 		if tick == 1 and walkLength == 0:
 			if limit1 != 3 and limit2 != 3:
-				direction = randi_range(1,2)
+				facing = randi_range(1,2)
 				dirLock = 1
 			if limit1 == 3:
-				direction = 2
+				facing = 2
 				dirLock = 1
 			if limit2 == 3:
-				direction = 1
+				facing = 1
 				dirLock = 1
 			#print("test1")
 
-		if direction == 1 and dirLock == 1 and limit1 != 3:
+		if facing == 1 and dirLock == 1 and limit1 != 3:
 			if d1Tick != 0:
 				velocity.x = 50
 				d1Tick -= 1
@@ -65,14 +65,14 @@ func _physics_process(delta):
 				limit1 += 1
 				walkLength = 41
 				d1Tick = 60
-				print(d1Tick)
+				#print(d1Tick)
 				#print("test2")
 
-		if direction == 2 and dirLock == 1 and limit2 != 3:
+		if facing == 2 and dirLock == 1 and limit2 != 3:
 			if d2Tick != 0:
 				velocity.x = -50
 				d2Tick -= 1
-				print(d2Tick)
+				#print(d2Tick)
 			if d2Tick == 0:
 				velocity.x = 0
 				dirLock = 0
@@ -96,10 +96,10 @@ func _physics_process(delta):
 			#print("hooooold up")
 #	print(tick)
 
-			if direction == 1:
+			if facing == 1:
 				animations.play("move")
 				sprite.flip_h = false
-			if  direction == 2:
+			if  facing == 2:
 				animations.play("move")
 				sprite.flip_h = true
 			
@@ -126,9 +126,9 @@ func _on_area_2d_body_exited(body):
 		#print("check3")
 
 func _take_damage(damageamount):
-	print("enemy hit")
-	health = health - 1
-	print(health)
+	#print("enemy hit")
+	health = health - damageamount
+
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("_take_damage"):

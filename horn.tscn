@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c34nub06kvplr"]
+
+[ext_resource type="Script" path="res://horn.gd" id="1_dtolx"]
+[ext_resource type="Texture2D" uid="uid://coihrsj07e5a1" path="res://Assets/horn.png" id="2_fslej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ryc"]
+
+[node name="horn" type="CharacterBody2D"]
+script = ExtResource("1_dtolx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_fslej")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_n3ryc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
