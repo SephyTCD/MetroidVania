@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://brdi6syqyxlit"]
 
 [ext_resource type="Script" path="res://Scripts/basic_enemy.gd" id="1_b5clg"]
-[ext_resource type="Texture2D" uid="uid://cdakiu5pt5iti" path="res://Assets/Enemy/basicEnemy.png" id="1_w8nr4"]
+[ext_resource type="Texture2D" uid="uid://brkn245ymky3o" path="res://Assets/Enemy/perfuit.png" id="2_5yoil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4n7g"]
-size = Vector2(15, 10)
+size = Vector2(31, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_he8pb"]
-size = Vector2(15, 10)
+size = Vector2(31, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eaqfc"]
 radius = 51.0882
@@ -22,10 +22,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1]
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jqndn"]
@@ -34,17 +34,16 @@ _data = {
 }
 
 [node name="Basic Enemy" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_b5clg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_w8nr4")
-hframes = 2
+texture = ExtResource("2_5yoil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_q4n7g")
 
 [node name="Timer" type="Timer" parent="."]
@@ -56,7 +55,7 @@ autostart = true
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-0.5, 0)
+position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_he8pb")
 
 [node name="Area2D" type="Area2D" parent="."]

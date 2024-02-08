@@ -1,12 +1,18 @@
 extends CharacterBody2D
 
+
+
 var condition = 1
 var target = null
 var health = 5
 var damage = 20
 
 var speed = 100
+var jumpSpeed = -400.0
+var jumpReady = 1
 var gravity = 1800
+var direction = 0
+var facing = 1
 var dirLock = 0
 var limit1 = 0
 var limit2 = 0
@@ -14,7 +20,6 @@ var tick = 120
 var walkLength = 41
 var d2Tick = 60
 var d1Tick = 60
-var facing = 1
 
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -26,13 +31,21 @@ var facing = 1
 
 func _physics_process(delta):
 
+	if target == null:
+		velocity.x = 100
+
+	if target != null and is_on_floor():
+		velocity.x = 0
+
 	if health == 0:
 		queue_free()
 
+	velocity.y += gravity * delta
+
 	if condition == 1:
 		#print("neutral")
-		
-		velocity.y += gravity * delta
+		speed = 100
+
 		
 		if walkLength != 0:
 			walkLength -= 1
@@ -107,29 +120,56 @@ func _physics_process(delta):
 				animations.play("jmove")
 	move_and_slide()
 
-	if condition == 2:
-		if target:
-			var direction = sign(target.global_position.x - global_position.x)
-			velocity.x = direction * speed
-			move_and_slide()
+#///////////////////////////////////////////////////////////////////////////////
 
-func _on_area_2d_body_entered(body):
+func _aggro_condition():
+	speed = 300
+	if is_on_floor():
+		_on_timer_timeout()
+	move_and_slide()
+
+func _direction():
+	if target:
+		direction = sign(target.global_position.x - global_position.x)
+
+func _jump():
+	speed = 300
+	velocity.y = jumpSpeed
+	velocity.x = direction * speed
+
+	if condition == 2:
+		
+		speed = 300
+		#_on_timer_timeout()
+		move_and_slide()
+
+func _on_timer_timeout():
+	if target != null:
+		_direction()
+		_jump()
+
+#//////////////////////////////////////////////////////////////////////////////
+
+func _on_site_body_entered(body):
 	condition = 2
 	if body.name == "Player":
 		target = body
-		#print("check2")
+	_aggro_condition()
 
-func _on_area_2d_body_exited(body):
+func _on_site_body_exited(body):
 	condition = 1
 	if body.name == "Player":
 		target = null
 		#print("check3")
 
-func _take_damage(damageamount):
-	#print("enemy hit")
-	health = health - damageamount
+#//////////////////////////////////////////////////////////////////////////////
 
+func _take_damage(damageamount):
+	health = health - damageamount
+	print(health)
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("_take_damage"):
 		body._take_damage(damage)
+	if body.has_method("_crush"):
+		body._crush()

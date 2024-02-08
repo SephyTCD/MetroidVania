@@ -15,7 +15,17 @@ var moveLock = 11
 
 #Jumping
 var jump_speed = -500.0
+#<<<<<<< HEAD
+@export var wallJumpVerticalSpeed = -400
+@export var wallJumpHorizontalSpeed = 300
+#handles making the player hang on the wall for a split-second when wall jumping
+var wallJumpTimer: float = 0
+@export var wallJumpTime: float = .1
+#the direction the player was holding when they pressed jump, not the direction the jump should go
+var wallJumpDir = ""
+#=======
 var wallJumpSpeed = -400
+#>>>>>>> parent of 5bbbda0 (Cleaned up some code in the physicsProcess and made wall jump feel a bit smoother)
 
 #Facing
 var facing = 1
@@ -40,6 +50,10 @@ signal playerHealed(amount)
 signal updatePlayerHealthBar(newValue)
 signal playerDied()
 
+#glide
+var canGlide = 0
+var glideTime = .30
+
 @onready var playerHealthBar = get_node("UI/PlayerHealthBar")
 
 #projectile
@@ -54,6 +68,7 @@ var gravity = 1800
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentHealth = maxHealth;
+
 
 func _on_area_2d_body_entered(body):
 	#print("test")
@@ -83,6 +98,7 @@ func shoot():
 			inst.speed *= -1
 			animations.play("paper_spin")
 			sprite.flip_h = true
+
 
 #health stuff
 #(going to add knockback later)
@@ -119,8 +135,31 @@ func _update_player_health_bar():
 func _physics_process(delta):
 	# Add the gravity.
 	velocity.y += gravity * delta
+#<<<<<<< HEAD
+	
+	#handle wall jump
+	if wallJumpTimer > 0:
+		wallJumpTimer -= delta
+	
+	if wallJumpTimer <= 0 and wallJumpDir != "":
+		#freezeMovement = false
+		
+		velocity.y = wallJumpVerticalSpeed
+		moveLock = 10
+		
+		if wallJumpDir == "right":
+			velocity.x = -wallJumpHorizontalSpeed
+		
+		if wallJumpDir == "left":
+			velocity.x = wallJumpHorizontalSpeed
+		
+		wallJumpDir = ""
+	
+	#handle jump
+#=======
 
 # Handle Jump.
+#>>>>>>> parent of 5bbbda0 (Cleaned up some code in the physicsProcess and made wall jump feel a bit smoother)
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_speed
@@ -152,8 +191,13 @@ func _physics_process(delta):
 
 	if moveLock == 0:
 		moveLock = 11
+#<<<<<<< HEAD
+	
+	# Get the input direction / allow move controls when true.
+#=======
 
 # Get the input direction / allow move controls when true.
+#>>>>>>> parent of 5bbbda0 (Cleaned up some code in the physicsProcess and made wall jump feel a bit smoother)
 	if moveLock == 11:
 		move = true
 
@@ -173,6 +217,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_right"):
 		facing = 1
 		$Marker2D.position.x = abs($Marker2D.position.x) * 1
+	
 	if Input.is_action_just_pressed("ui_left"):
 		facing = 2
 		$Marker2D.position.x = abs($Marker2D.position.x) * -1
@@ -247,8 +292,20 @@ func _physics_process(delta):
 		if facing == 2:
 			animations.play("wallrun_right")
 			sprite.flip_h = true
+
+	if Input.is_action_pressed("jump") and is_on_floor() == false and wallRunning == 0:
+		gravity = 500
+		glideTime -= delta
+		if glideTime <= 0:
+			gravity = 1800
+			
+		
+
 	#print(runTime)
 	#print(moveLock)
 
 	shoot()
 	move_and_slide()
+
+func _glide():
+	canGlide = 1
