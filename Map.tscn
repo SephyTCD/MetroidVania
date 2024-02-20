@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b8prbppycg8dh"]
+[gd_scene load_steps=68 format=3 uid="uid://b8prbppycg8dh"]
 
 [ext_resource type="Texture2D" uid="uid://cdq38mn13u7w0" path="res://assets/Misc/tile.png" id="1_3j5l6"]
 [ext_resource type="Texture2D" uid="uid://cnrr0xl4r6wco" path="res://assets/Environment/pathBLcorner.png" id="2_13p5e"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cmqjhbqkrnhlr" path="res://wing.tscn" id="30_iqsej"]
 [ext_resource type="PackedScene" uid="uid://bhoqqa4qrbfwy" path="res://breakblock.tscn" id="31_qq3ce"]
 [ext_resource type="PackedScene" uid="uid://c34nub06kvplr" path="res://horn.tscn" id="31_rn0l1"]
+[ext_resource type="Script" path="res://Provocator.gd" id="34_cm7rs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juj8c"]
 texture = ExtResource("1_3j5l6")
@@ -229,6 +230,8 @@ height = 58.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flhag"]
 size = Vector2(98, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u7dt"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Background5" type="Sprite2D" parent="."]
@@ -368,7 +371,7 @@ texture = ExtResource("25_aweld")
 position = Vector2(2504, 61)
 
 [node name="Hunter" parent="." instance=ExtResource("28_4j0ps")]
-position = Vector2(2296, -182)
+position = Vector2(2285, -186)
 
 [node name="Hunter3" parent="." instance=ExtResource("28_4j0ps")]
 position = Vector2(2428, -646)
@@ -424,6 +427,12 @@ position = Vector2(2811, -129)
 
 [node name="Vanguard2" parent="." instance=ExtResource("27_jtvpi")]
 position = Vector2(2803, -291)
+
+[node name="Provocator" type="CharacterBody2D" parent="."]
+script = ExtResource("34_cm7rs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Provocator"]
+shape = SubResource("RectangleShape2D_0u7dt")
 
 [connection signal="playerDamaged" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_damaged"]
 [connection signal="playerHealed" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_healed"]
