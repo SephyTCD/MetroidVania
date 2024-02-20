@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://duy8jeban4b2r"]
 
 [ext_resource type="Script" path="res://hunter.gd" id="1_7i471"]
-[ext_resource type="Texture2D" uid="uid://calioikk4wwod" path="res://Assets/Enemy/hunter.png" id="1_gya1x"]
+[ext_resource type="Texture2D" uid="uid://calioikk4wwod" path="res://assets/Enemy/hunter.png" id="1_gya1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6qmw"]
 size = Vector2(41, 46)

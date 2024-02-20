@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2jfcmbpnkb0f"
-path="res://.godot/imported/hunterProjectile.png-bbd9ae24111696f9056fe8cbf28b4297.ctex"
+path="res://.godot/imported/hunterProjectile.png-52e697f2b920523a598dd6cc7828f137.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemy/hunterProjectile.png"
-dest_files=["res://.godot/imported/hunterProjectile.png-bbd9ae24111696f9056fe8cbf28b4297.ctex"]
+source_file="res://assets/Enemy/hunterProjectile.png"
+dest_files=["res://.godot/imported/hunterProjectile.png-52e697f2b920523a598dd6cc7828f137.ctex"]
 
 [params]
 
