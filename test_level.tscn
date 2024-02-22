@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bl21sfougn2ey"]
+[gd_scene load_steps=48 format=3 uid="uid://bl21sfougn2ey"]
 
 [ext_resource type="Texture2D" uid="uid://cdq38mn13u7w0" path="res://assets/Misc/tile.png" id="1_6sy1g"]
 [ext_resource type="Texture2D" uid="uid://cnrr0xl4r6wco" path="res://assets/Environment/pathBLcorner.png" id="2_p4s4a"]
@@ -191,6 +191,9 @@ sources/33 = SubResource("TileSetAtlasSource_m8qsd")
 sources/34 = SubResource("TileSetAtlasSource_q73jo")
 sources/4 = SubResource("TileSetAtlasSource_6bvvp")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pd7w"]
+size = Vector2(176, 48)
+
 [node name="TestLevel" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -252,6 +255,14 @@ position = Vector2(2440, -104)
 [node name="CharacterBody2D9" parent="break blocks" instance=ExtResource("23_gju44")]
 position = Vector2(2440, -88)
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(280, 536)
+shape = SubResource("RectangleShape2D_7pd7w")
+
 [connection signal="playerDamaged" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_damaged"]
 [connection signal="playerHealed" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_healed"]
 [connection signal="updatePlayerHealthBar" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_update_player_health_bar"]
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]
