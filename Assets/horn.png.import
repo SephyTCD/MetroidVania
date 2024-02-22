@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://coihrsj07e5a1"
-path="res://.godot/imported/horn.png-fd1ec80c000ce679ae44c72ff882bb86.ctex"
+path="res://.godot/imported/horn.png-98c0ab5487ab85b50ca7a6a15706064e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/horn.png"
-dest_files=["res://.godot/imported/horn.png-fd1ec80c000ce679ae44c72ff882bb86.ctex"]
+source_file="res://assets/horn.png"
+dest_files=["res://.godot/imported/horn.png-98c0ab5487ab85b50ca7a6a15706064e.ctex"]
 
 [params]
 
