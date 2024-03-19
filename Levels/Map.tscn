@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cmqjhbqkrnhlr" path="res://wing.tscn" id="30_iqsej"]
 [ext_resource type="PackedScene" uid="uid://bhoqqa4qrbfwy" path="res://breakblock.tscn" id="31_qq3ce"]
 [ext_resource type="PackedScene" uid="uid://c34nub06kvplr" path="res://horn.tscn" id="31_rn0l1"]
-[ext_resource type="Script" path="res://Provocator.gd" id="34_cm7rs"]
+[ext_resource type="Script" path="res://Levels/Provocator.gd" id="34_10wy5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juj8c"]
 texture = ExtResource("1_3j5l6")
@@ -429,7 +429,7 @@ position = Vector2(2811, -129)
 position = Vector2(2803, -291)
 
 [node name="Provocator" type="CharacterBody2D" parent="."]
-script = ExtResource("34_cm7rs")
+script = ExtResource("34_10wy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Provocator"]
 shape = SubResource("RectangleShape2D_0u7dt")
