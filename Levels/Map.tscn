@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b8prbppycg8dh"]
+[gd_scene load_steps=69 format=3 uid="uid://b8prbppycg8dh"]
 
 [ext_resource type="Texture2D" uid="uid://cdq38mn13u7w0" path="res://assets/Misc/tile.png" id="1_3j5l6"]
 [ext_resource type="Texture2D" uid="uid://cnrr0xl4r6wco" path="res://assets/Environment/pathBLcorner.png" id="2_13p5e"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://bhoqqa4qrbfwy" path="res://breakblock.tscn" id="31_qq3ce"]
 [ext_resource type="PackedScene" uid="uid://c34nub06kvplr" path="res://horn.tscn" id="31_rn0l1"]
 [ext_resource type="Script" path="res://Levels/Provocator.gd" id="34_10wy5"]
+[ext_resource type="PackedScene" uid="uid://cgntbilyh8saj" path="res://npc.tscn" id="35_t4d0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juj8c"]
 texture = ExtResource("1_3j5l6")
@@ -432,7 +433,11 @@ position = Vector2(2803, -291)
 script = ExtResource("34_10wy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Provocator"]
+position = Vector2(1983, 70)
 shape = SubResource("RectangleShape2D_0u7dt")
+
+[node name="NPC" parent="Provocator" instance=ExtResource("35_t4d0p")]
+position = Vector2(1984, 64)
 
 [connection signal="playerDamaged" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_damaged"]
 [connection signal="playerHealed" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_healed"]
