@@ -436,7 +436,7 @@ script = ExtResource("34_10wy5")
 shape = SubResource("RectangleShape2D_0u7dt")
 
 [node name="howler" parent="." instance=ExtResource("35_48n3q")]
-position = Vector2(1993, 62)
+position = Vector2(2896, -67)
 
 [connection signal="playerDamaged" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_damaged"]
 [connection signal="playerHealed" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_healed"]
