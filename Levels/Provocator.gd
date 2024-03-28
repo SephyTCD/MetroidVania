@@ -1,5 +1,5 @@
 extends Node
-class_name StateM
+
 
 signal state_transition
 
