@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bajdt10x6kbbc"]
+
+[ext_resource type="PackedScene" uid="uid://tgifnen2rjnv" path="res://turret.tscn" id="1_b5lv8"]
+[ext_resource type="PackedScene" uid="uid://ycictb4iya0a" path="res://Player.tscn" id="2_tgvkb"]
+[ext_resource type="PackedScene" uid="uid://dkxa13uqh35bv" path="res://turret_projectile.tscn" id="3_ddjhq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8r565"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1t63"]
+size = Vector2(2.03198, 2.39889)
+
+[node name="Enemy_Test" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+rotation = -3.14159
+scale = Vector2(552.172, -10.0046)
+
+[node name="Fl" type="MeshInstance2D" parent="StaticBody2D"]
+mesh = SubResource("BoxMesh_8r565")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.00271652, 0.599722)
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_d1t63")
+
+[node name="Turret" parent="." instance=ExtResource("1_b5lv8")]
+
+[node name="Player" parent="." instance=ExtResource("2_tgvkb")]
+position = Vector2(-195, -21)
+
+[node name="turret_projectile" parent="." instance=ExtResource("3_ddjhq")]
+visible = false
+position = Vector2(12, -49)
