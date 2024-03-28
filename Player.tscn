@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://ycictb4iya0a"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pw1wo"]
-[ext_resource type="Texture2D" uid="uid://b4owgusmsp41m" path="res://Assets/Bokan/bokan.png" id="2_51mdt"]
+[ext_resource type="Texture2D" uid="uid://b4owgusmsp41m" path="res://assets/Bokan/bokan.png" id="2_51mdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7imx"]
 size = Vector2(14, 28)
@@ -158,8 +158,9 @@ frame = 13
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v7imx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="followCamera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+limit_left = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
