@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5laabtwqohgy"
-path="res://.godot/imported/pathbottom.png-e03f1fa6404b04889194862abbc5cf50.ctex"
+path="res://.godot/imported/pathbottom.png-6e31cd2984608553b84b3c0803655fdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Environment/pathbottom.png"
-dest_files=["res://.godot/imported/pathbottom.png-e03f1fa6404b04889194862abbc5cf50.ctex"]
+source_file="res://Assets/Environment/pathbottom.png"
+dest_files=["res://.godot/imported/pathbottom.png-6e31cd2984608553b84b3c0803655fdf.ctex"]
 
 [params]
 
