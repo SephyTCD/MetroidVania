@@ -8,6 +8,8 @@ var attackTrig = 0
 var health = 5
 
 func _physics_process(delta):
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
 
 	if health == 0:
 		queue_free()
@@ -22,6 +24,9 @@ func _on_timer_timeout():
 	_fly()
 
 func _fly():
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
+	
 	if turn == 0:
 		velocity.x = 200
 		turn = 1
@@ -31,6 +36,9 @@ func _fly():
 		turn = 0
 
 func _on_attack_timer_timeout():
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
+	
 	if target != null:
 		_shoot()
 

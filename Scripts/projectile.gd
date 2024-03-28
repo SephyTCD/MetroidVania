@@ -14,6 +14,8 @@ var crush = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
 
 	time -= delta
 	if time <= 0:

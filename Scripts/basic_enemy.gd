@@ -25,7 +25,9 @@ var facing = 1
 #	print("test1")
 
 func _physics_process(delta):
-
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
+	
 	if health == 0:
 		queue_free()
 

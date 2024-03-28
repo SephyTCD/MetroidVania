@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://vmjxt72xtl43"]
+
+[ext_resource type="Script" path="res://HowlerProjectile.gd" id="1_h0jtr"]
+[ext_resource type="Texture2D" uid="uid://cx73wugvb1w7v" path="res://Assets/Enemy/howler_projectile.png" id="2_pf4h7"]
+
+[node name="HowlerProjectile" type="CharacterBody2D"]
+script = ExtResource("1_h0jtr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pf4h7")

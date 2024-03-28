@@ -24,6 +24,9 @@ var d2Tick = 60
 var d1Tick = 60
 
 func _physics_process(delta):
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
+	
 	if health == 0:
 		queue_free()
 		

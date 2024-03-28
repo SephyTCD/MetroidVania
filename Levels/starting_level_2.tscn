@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bi142xtpvr7j7"]
+[gd_scene load_steps=47 format=3 uid="uid://bi142xtpvr7j7"]
 
 [ext_resource type="Texture2D" uid="uid://cdq38mn13u7w0" path="res://assets/Misc/tile.png" id="1_sfty3"]
 [ext_resource type="Texture2D" uid="uid://cnrr0xl4r6wco" path="res://assets/Environment/pathBLcorner.png" id="2_xkgjq"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ql101sxal8aa" path="res://assets/Enemy/spikes.png" id="20_k8c2v"]
 [ext_resource type="PackedScene" uid="uid://ycictb4iya0a" path="res://Player.tscn" id="21_v5mnm"]
 [ext_resource type="Script" path="res://Scripts/PlayerHealthbar.gd" id="22_gd74f"]
+[ext_resource type="PackedScene" uid="uid://brdi6syqyxlit" path="res://basic_enemy.tscn" id="23_atdhe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juj8c"]
 texture = ExtResource("1_sfty3")
@@ -229,6 +230,21 @@ script = ExtResource("22_gd74f")
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
+
+[node name="Basic Enemy" parent="." instance=ExtResource("23_atdhe")]
+position = Vector2(3104, 1600)
+
+[node name="Basic Enemy5" parent="." instance=ExtResource("23_atdhe")]
+position = Vector2(3584, 1568)
+
+[node name="Basic Enemy4" parent="." instance=ExtResource("23_atdhe")]
+position = Vector2(5760, 848)
+
+[node name="Basic Enemy3" parent="." instance=ExtResource("23_atdhe")]
+position = Vector2(5168, 976)
+
+[node name="Basic Enemy2" parent="." instance=ExtResource("23_atdhe")]
+position = Vector2(4768, 1392)
 
 [connection signal="playerDamaged" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_damaged"]
 [connection signal="playerHealed" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_healed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0oblrklmdvgh"]
 
 [ext_resource type="Script" path="res://bulwark.gd" id="1_krnjc"]
-[ext_resource type="Texture2D" uid="uid://b58nu3s5gmbvm" path="res://Assets/Enemy/bulwark.png" id="2_7ys44"]
+[ext_resource type="Texture2D" uid="uid://b58nu3s5gmbvm" path="res://assets/Enemy/bulwark.png" id="2_7ys44"]
 
 [node name="Bulwark" type="CharacterBody2D"]
 collision_layer = 7
