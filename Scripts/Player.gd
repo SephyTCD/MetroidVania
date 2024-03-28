@@ -153,6 +153,10 @@ func _jump():
 		runAble = 0
 
 func _physics_process(delta):
+	
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
+	
 	# Add the gravity.
 	velocity.y += gravity * delta
 	
@@ -296,7 +300,7 @@ func _physics_process(delta):
 	#print(runTime)
 	#print(moveLock)
 	
-	if !freezeMovement:
+	if !freezeMovement && !Globals.inCutscene:
 		shoot()
 		move_and_slide()
 

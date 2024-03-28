@@ -30,6 +30,8 @@ var d1Tick = 60
 #	print("test1")
 
 func _physics_process(delta):
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
 
 	if target == null:
 		velocity.x = 100
@@ -133,6 +135,9 @@ func _direction():
 		direction = sign(target.global_position.x - global_position.x)
 
 func _jump():
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
+	
 	speed = 300
 	velocity.y = jumpSpeed
 	velocity.x = direction * speed

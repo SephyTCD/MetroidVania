@@ -5,6 +5,9 @@ var time = 0.60
 var damage = 15
 
 func _physics_process(delta):
+	if Globals.inCutscene: # Prevent physics update when in cutscene
+		return 
+	
 	time -= delta
 	if time <= 0:
 		queue_free()

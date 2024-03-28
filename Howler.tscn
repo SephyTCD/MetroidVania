@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3lcs765e3h5x"]
+[gd_scene load_steps=10 format=3 uid="uid://cb88cgxm7q0f4"]
 
 [ext_resource type="Script" path="res://Howler.gd" id="1_aborj"]
-[ext_resource type="Texture2D" uid="uid://ckx48emfcigg3" path="res://assets/boundturret.png" id="1_td5nd"]
 [ext_resource type="Script" path="res://HowlerStatemachine.gd" id="3_svflp"]
 [ext_resource type="Script" path="res://HowlerIdle.gd" id="4_yt760"]
 [ext_resource type="Script" path="res://HowlerShoot.gd" id="5_22txr"]
@@ -68,7 +67,6 @@ size = Vector2(25, 29)
 script = ExtResource("1_aborj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_td5nd")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
