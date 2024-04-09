@@ -13,7 +13,8 @@ func _ready():
 	pass
 
 func _process(_delta):
-
+	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
+		return
 
 	if Input.is_action_pressed("ui_left"):
 		player.marker.position.x = abs(player.marker.position.x) * -1

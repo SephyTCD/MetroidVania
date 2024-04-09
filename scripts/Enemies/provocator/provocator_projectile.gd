@@ -8,6 +8,8 @@ var damage = 1
 
 
 func _physics_process(delta):
+	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
+		return
 	
 	time -= delta
 	if time <= 0:

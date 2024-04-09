@@ -10,6 +10,9 @@ var direction = 1
 @onready var sprite : Sprite2D = $Sprite2D
 
 func _physics_process(delta):
+	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
+		return
+	
 	time -= delta
 	if time <= 0:
 		queue_free()

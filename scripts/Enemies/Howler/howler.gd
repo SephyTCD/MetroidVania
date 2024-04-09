@@ -12,6 +12,8 @@ var boxTime = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(_delta):
+	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
+		return
 
 	velocity.y += gravity * _delta
 

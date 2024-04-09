@@ -13,7 +13,10 @@ config_version=5
 config/name="MetroidVania2"
 run/main_scene="res://scenes/Maps/intro_level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://globals.gd"
 
 [input]
 

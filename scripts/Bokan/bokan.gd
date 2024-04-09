@@ -28,6 +28,9 @@ var shootLock = 0
 @onready var sprite : Sprite2D = $Sprite2D
 
 func _physics_process(_delta):
+	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
+		return
+	
 	
 #//////////////////////////////////////////////////////////////////////////////
 	#Health details

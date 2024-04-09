@@ -19,10 +19,16 @@ func _ready():
 		current_state = initial_state
 
 func _process(_delta):
+	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
+		return
+	
 	if current_state:
 		current_state._update(_delta)
 
 func change_state(source_state : State, new_state_name : String):
+	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
+		return
+	
 	if source_state != current_state:
 		print("invalid " + source_state.name + " currently " + current_state.name)
 		return

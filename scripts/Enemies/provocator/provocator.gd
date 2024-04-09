@@ -14,6 +14,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite : Sprite2D = $Sprite2D
 
 func _physics_process(_delta):
+	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
+		return
 
 	if health <= 0:
 		queue_free()
