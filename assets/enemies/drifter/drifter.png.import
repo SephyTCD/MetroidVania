@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01j0lbhk3dgv"
-path="res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"
+uid="uid://l1km46u7wwu7"
+path="res://.godot/imported/drifter.png-8f9d1a8894d173a2a06c4f8f8616f9b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bokan/bokan.png"
-dest_files=["res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"]
+source_file="res://assets/enemies/drifter/drifter.png"
+dest_files=["res://.godot/imported/drifter.png-8f9d1a8894d173a2a06c4f8f8616f9b7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01j0lbhk3dgv"
-path="res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"
+uid="uid://ctvftpnhkq7ew"
+path="res://.godot/imported/Sprite-0001.png-b73891f684a027896137d17746f8048d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bokan/bokan.png"
-dest_files=["res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"]
+source_file="res://assets/Terrain/Area1/Sprite-0001.png"
+dest_files=["res://.godot/imported/Sprite-0001.png-b73891f684a027896137d17746f8048d.ctex"]
 
 [params]
 

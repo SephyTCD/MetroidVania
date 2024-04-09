@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01j0lbhk3dgv"
-path="res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"
+uid="uid://dgqn5hj4xljxa"
+path="res://.godot/imported/bokan2.png-1560dbd2d5ffb7b9ef68edcc4dd618c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bokan/bokan.png"
-dest_files=["res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"]
+source_file="res://assets/Bokan/bokan2.png"
+dest_files=["res://.godot/imported/bokan2.png-1560dbd2d5ffb7b9ef68edcc4dd618c5.ctex"]
 
 [params]
 

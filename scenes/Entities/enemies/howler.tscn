@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=3 uid="uid://dkrqj0yqgqg0m"]
+
+[ext_resource type="Script" path="res://scripts/Enemies/Howler/howler.gd" id="1_7r1so"]
+[ext_resource type="Texture2D" uid="uid://orf47ogk8l2a" path="res://assets/enemies/howler/howler.png" id="1_uwxa5"]
+[ext_resource type="Script" path="res://scripts/Enemies/Howler/HowlerStatemachine.gd" id="3_enjoo"]
+[ext_resource type="Script" path="res://scripts/Enemies/Howler/howler_idle.gd" id="4_ooc4k"]
+[ext_resource type="Script" path="res://scripts/Enemies/Howler/howler_shoot.gd" id="5_3t3em"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smnx4"]
+size = Vector2(24, 31)
+
+[sub_resource type="Animation" id="Animation_835cn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qxwxr"]
+resource_name = "howler_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_c7uk1"]
+resource_name = "howler_shoot"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_irjom"]
+_data = {
+"RESET": SubResource("Animation_835cn"),
+"howler_idle": SubResource("Animation_qxwxr"),
+"howler_shoot": SubResource("Animation_c7uk1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlkd2"]
+size = Vector2(24, 31)
+
+[node name="howler" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_7r1so")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uwxa5")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_smnx4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_irjom")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_tlkd2")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-16, -4)
+
+[node name="HowlerStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "howler")]
+script = ExtResource("3_enjoo")
+initial_state = NodePath("howler_idle")
+howler = NodePath("..")
+
+[node name="howler_idle" type="Node" parent="HowlerStatemachine"]
+script = ExtResource("4_ooc4k")
+
+[node name="howler_shoot" type="Node" parent="HowlerStatemachine" node_paths=PackedStringArray("marker")]
+script = ExtResource("5_3t3em")
+marker = NodePath("../../Marker2D")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
