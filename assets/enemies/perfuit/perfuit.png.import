@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01j0lbhk3dgv"
-path="res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"
+uid="uid://b7w6no5di8es2"
+path="res://.godot/imported/perfuit.png-ef966b7b7965795be0f6c31ef4abcbec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bokan/bokan.png"
-dest_files=["res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"]
+source_file="res://assets/enemies/perfuit/perfuit.png"
+dest_files=["res://.godot/imported/perfuit.png-ef966b7b7965795be0f6c31ef4abcbec.ctex"]
 
 [params]
 

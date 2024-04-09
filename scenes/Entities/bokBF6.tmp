@@ -1,0 +1,139 @@
+[gd_scene load_steps=17 format=3 uid="uid://55qio502f46k"]
+
+[ext_resource type="Script" path="res://scripts/Bokan/bokan.gd" id="1_6hup2"]
+[ext_resource type="Texture2D" uid="uid://01j0lbhk3dgv" path="res://assets/Bokan/bokan.png" id="1_nucb1"]
+[ext_resource type="Script" path="res://scripts/Bokan/BokanStatemachine.gd" id="3_m2t1x"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_idle.gd" id="4_o878r"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_run.gd" id="5_aq04k"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_jump.gd" id="6_3l18u"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_air.gd" id="7_soipe"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_wall_run.gd" id="8_6qyc0"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_wall_slide.gd" id="9_7u6bl"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_attack.gd" id="10_rvwq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76rb4"]
+size = Vector2(13, 28)
+
+[sub_resource type="Animation" id="Animation_rjsm6"]
+resource_name = "air"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_x1bsp"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bnqj1"]
+resource_name = "run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 5]
+}
+
+[sub_resource type="Animation" id="Animation_iuml1"]
+resource_name = "wall_run"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3nuta"]
+_data = {
+"air": SubResource("Animation_rjsm6"),
+"idle": SubResource("Animation_x1bsp"),
+"run": SubResource("Animation_bnqj1"),
+"wall_run": SubResource("Animation_iuml1")
+}
+
+[node name="bokan" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_6hup2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nucb1")
+hframes = 14
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_76rb4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3nuta")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(10, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="BokanStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "player")]
+script = ExtResource("3_m2t1x")
+initial_state = NodePath("bokan_idle")
+player = NodePath("..")
+
+[node name="bokan_idle" type="Node" parent="BokanStatemachine"]
+script = ExtResource("4_o878r")
+
+[node name="bokan_run" type="Node" parent="BokanStatemachine"]
+script = ExtResource("5_aq04k")
+
+[node name="bokan_jump" type="Node" parent="BokanStatemachine"]
+script = ExtResource("6_3l18u")
+
+[node name="bokan_air" type="Node" parent="BokanStatemachine"]
+script = ExtResource("7_soipe")
+
+[node name="bokan_wall_run" type="Node" parent="BokanStatemachine"]
+script = ExtResource("8_6qyc0")
+
+[node name="bokan_wall_slide" type="Node" parent="BokanStatemachine"]
+script = ExtResource("9_7u6bl")
+
+[node name="bokan_attack" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("10_rvwq4")
+player = NodePath("..")

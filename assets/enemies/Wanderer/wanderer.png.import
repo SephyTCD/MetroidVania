@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01j0lbhk3dgv"
-path="res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"
+uid="uid://dksyaas5mvi8j"
+path="res://.godot/imported/wanderer.png-2657f61d4aa290f79ad338f82307bd21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bokan/bokan.png"
-dest_files=["res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"]
+source_file="res://assets/enemies/Wanderer/wanderer.png"
+dest_files=["res://.godot/imported/wanderer.png-2657f61d4aa290f79ad338f82307bd21.ctex"]
 
 [params]
 

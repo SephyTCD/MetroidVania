@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://db3ad20nh2mp0"]
+
+[ext_resource type="Script" path="res://scripts/Enemies/drifter/drifter.gd" id="1_1v505"]
+[ext_resource type="Texture2D" uid="uid://l1km46u7wwu7" path="res://assets/enemies/drifter/drifter.png" id="1_fk0gn"]
+[ext_resource type="Script" path="res://scripts/Enemies/drifter/DrifterStatemachine.gd" id="3_ocjuh"]
+[ext_resource type="Script" path="res://scripts/Enemies/drifter/drifter_wander.gd" id="4_kxv70"]
+[ext_resource type="Script" path="res://scripts/Enemies/drifter/drifter_dash.gd" id="5_vfpt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ed10"]
+size = Vector2(18, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12taw"]
+size = Vector2(18, 27)
+
+[sub_resource type="Animation" id="Animation_sc7ef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_sjk01"]
+resource_name = "drifter_wave"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1njt"]
+_data = {
+"RESET": SubResource("Animation_sc7ef"),
+"drifter_wave": SubResource("Animation_sjk01")
+}
+
+[node name="drifter" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_1v505")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fk0gn")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_8ed10")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_12taw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y1njt")
+}
+
+[node name="DrifterStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "drifter")]
+script = ExtResource("3_ocjuh")
+initial_state = NodePath("drifter_wander")
+drifter = NodePath("..")
+
+[node name="drifter_wander" type="Node" parent="DrifterStatemachine"]
+script = ExtResource("4_kxv70")
+
+[node name="drifter_dash" type="Node" parent="DrifterStatemachine"]
+script = ExtResource("5_vfpt4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

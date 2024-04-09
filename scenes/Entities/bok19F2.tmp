@@ -1,0 +1,357 @@
+[gd_scene load_steps=27 format=3 uid="uid://55qio502f46k"]
+
+[ext_resource type="Script" path="res://scripts/Bokan/bokan.gd" id="1_6hup2"]
+[ext_resource type="Texture2D" uid="uid://dgqn5hj4xljxa" path="res://assets/Bokan/bokan2.png" id="2_m6h4n"]
+[ext_resource type="Script" path="res://scripts/Bokan/BokanStatemachine.gd" id="3_m2t1x"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_idle.gd" id="4_o878r"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_run.gd" id="5_aq04k"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_jump.gd" id="6_3l18u"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_air.gd" id="7_soipe"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_wall_run.gd" id="8_6qyc0"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_wall_slide.gd" id="9_7u6bl"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_wall_jump.gd" id="10_f0oap"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_attack.gd" id="10_rvwq4"]
+[ext_resource type="Script" path="res://scripts/Bokan/bokan_damage.gd" id="11_e5hfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76rb4"]
+size = Vector2(13, 28)
+
+[sub_resource type="Animation" id="Animation_sp4aa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rjsm6"]
+resource_name = "air"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_x1bsp"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k8n2b"]
+resource_name = "paper_throw_1"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(1, 2), Vector2i(2, 2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bokan_attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_animUnlock"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1uk55"]
+resource_name = "paper_throw_2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(3, 2), Vector2i(4, 2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bokan_attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_animUnlock"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bnqj1"]
+resource_name = "run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(1, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_n4nrt"]
+resource_name = "wall_kick"
+length = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BokanStatemachine/bokan_wall_jump")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_kick"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 6), Vector2i(0, 2)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BokanStatemachine/bokan_wall_jump")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_shootFree"
+}, {
+"args": [],
+"method": &"_shootFree"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iuml1"]
+resource_name = "wall_run"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5wi6t"]
+resource_name = "wall_slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_fym0u"]
+resource_name = "wall_throw"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(1, 5), Vector2i(2, 5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BokanStatemachine/bokan_wall_slide")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_anim_unlock"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qgc1p"]
+resource_name = "damage"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3nuta"]
+_data = {
+"RESET": SubResource("Animation_sp4aa"),
+"air": SubResource("Animation_rjsm6"),
+"damage": SubResource("Animation_qgc1p"),
+"idle": SubResource("Animation_x1bsp"),
+"paper_throw_1": SubResource("Animation_k8n2b"),
+"paper_throw_2": SubResource("Animation_1uk55"),
+"run": SubResource("Animation_bnqj1"),
+"wall_kick": SubResource("Animation_n4nrt"),
+"wall_run": SubResource("Animation_iuml1"),
+"wall_slide": SubResource("Animation_5wi6t"),
+"wall_throw": SubResource("Animation_fym0u")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wijv0"]
+size = Vector2(13, 11)
+
+[node name="bokan" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(-1, 0)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_6hup2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("2_m6h4n")
+hframes = 5
+vframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_76rb4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3nuta")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(10, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -7)
+zoom = Vector2(2.5, 2.5)
+
+[node name="wall_detect" type="Area2D" parent="."]
+position = Vector2(0, 3)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_detect"]
+position = Vector2(0.5, 8.5)
+shape = SubResource("RectangleShape2D_wijv0")
+
+[node name="BokanStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "player")]
+script = ExtResource("3_m2t1x")
+initial_state = NodePath("bokan_idle")
+player = NodePath("..")
+
+[node name="bokan_idle" type="Node" parent="BokanStatemachine"]
+script = ExtResource("4_o878r")
+
+[node name="bokan_run" type="Node" parent="BokanStatemachine"]
+script = ExtResource("5_aq04k")
+
+[node name="bokan_jump" type="Node" parent="BokanStatemachine"]
+script = ExtResource("6_3l18u")
+
+[node name="bokan_air" type="Node" parent="BokanStatemachine"]
+script = ExtResource("7_soipe")
+
+[node name="bokan_wall_run" type="Node" parent="BokanStatemachine"]
+script = ExtResource("8_6qyc0")
+
+[node name="bokan_wall_slide" type="Node" parent="BokanStatemachine"]
+script = ExtResource("9_7u6bl")
+
+[node name="bokan_wall_jump" type="Node" parent="BokanStatemachine"]
+script = ExtResource("10_f0oap")
+
+[node name="bokan_damage" type="Node" parent="BokanStatemachine"]
+script = ExtResource("11_e5hfk")
+
+[node name="bokan_attack" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("10_rvwq4")
+player = NodePath("..")
+
+[connection signal="body_entered" from="wall_detect" to="." method="_on_wall_detect_body_entered"]
+[connection signal="body_exited" from="wall_detect" to="." method="_on_wall_detect_body_exited"]

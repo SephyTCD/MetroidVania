@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01j0lbhk3dgv"
-path="res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"
+uid="uid://dafyiwv7s375f"
+path="res://.godot/imported/provocator_rock.png-7c2e6929956ae718d187315e1be0893d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bokan/bokan.png"
-dest_files=["res://.godot/imported/bokan.png-22f526c6aab58ed8e36572bc097acd73.ctex"]
+source_file="res://assets/enemies/provocator/provocator_rock.png"
+dest_files=["res://.godot/imported/provocator_rock.png-7c2e6929956ae718d187315e1be0893d.ctex"]
 
 [params]
 
