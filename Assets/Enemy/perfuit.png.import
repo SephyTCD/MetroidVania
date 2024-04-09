@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brkn245ymky3o"
-path="res://.godot/imported/perfuit.png-4c120bd6308d0d26ccd0f31b02c7c45f.ctex"
+path="res://.godot/imported/perfuit.png-31b4198f3eaf5bd202cf373470ed76e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/perfuit.png"
-dest_files=["res://.godot/imported/perfuit.png-4c120bd6308d0d26ccd0f31b02c7c45f.ctex"]
+source_file="res://Assets/Enemy/perfuit.png"
+dest_files=["res://.godot/imported/perfuit.png-31b4198f3eaf5bd202cf373470ed76e0.ctex"]
 
 [params]
 

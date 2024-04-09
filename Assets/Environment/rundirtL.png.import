@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds4w07rfwunke"
-path="res://.godot/imported/rundirtL.png-01859c81650b065fd2d98ba0e4c463f6.ctex"
+path="res://.godot/imported/rundirtL.png-9a88957763af7ecb885aab3000b728ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Environment/rundirtL.png"
-dest_files=["res://.godot/imported/rundirtL.png-01859c81650b065fd2d98ba0e4c463f6.ctex"]
+source_file="res://Assets/Environment/rundirtL.png"
+dest_files=["res://.godot/imported/rundirtL.png-9a88957763af7ecb885aab3000b728ab.ctex"]
 
 [params]
 

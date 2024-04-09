@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqxn12d8amt82"]
+
+[ext_resource type="Script" path="res://Level prefabs/Falling Platform/FallingPlatform.gd" id="1_gjii5"]
+[ext_resource type="Texture2D" uid="uid://de62x3drsqrtm" path="res://Assets/Environment/dirt.png" id="2_0hms2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmvi8"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8wvf"]
+size = Vector2(16, 3)
+
+[node name="FallingPlatform" type="StaticBody2D"]
+script = ExtResource("1_gjii5")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xmvi8")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+
+[node name="PlayerDetectionCollider" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_r8wvf")
+
+[node name="Sprite Active" type="Sprite2D" parent="."]
+texture = ExtResource("2_0hms2")
+
+[connection signal="area_entered" from="PlayerDetector" to="." method="_on_player_detector_area_entered"]
+[connection signal="area_exited" from="PlayerDetector" to="." method="_on_player_detector_area_exited"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://b8prbppycg8dh"]
+[gd_scene load_steps=70 format=3 uid="uid://b8prbppycg8dh"]
 
 [ext_resource type="Texture2D" uid="uid://cdq38mn13u7w0" path="res://Assets/Misc/tile.png" id="1_3j5l6"]
 [ext_resource type="Texture2D" uid="uid://cnrr0xl4r6wco" path="res://Assets/Environment/pathBLcorner.png" id="2_13p5e"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://c34nub06kvplr" path="res://horn.tscn" id="31_rn0l1"]
 [ext_resource type="Script" path="res://Levels/Provocator.gd" id="34_10wy5"]
 [ext_resource type="PackedScene" uid="uid://bavr8gnpw04k6" path="res://Howler.tscn" id="35_48n3q"]
+[ext_resource type="PackedScene" uid="uid://dqxn12d8amt82" path="res://Level prefabs/Falling Platform/FallingPlatform.tscn" id="36_xiuym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juj8c"]
 texture = ExtResource("1_3j5l6")
@@ -437,6 +438,9 @@ shape = SubResource("RectangleShape2D_0u7dt")
 
 [node name="howler" parent="." instance=ExtResource("35_48n3q")]
 position = Vector2(2896, -67)
+
+[node name="FallingPlatform" parent="." instance=ExtResource("36_xiuym")]
+position = Vector2(1982, 43)
 
 [connection signal="playerDamaged" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_damaged"]
 [connection signal="playerHealed" from="Player" to="Player/UI/PlayerHealthBar" method="_on_player_player_healed"]
