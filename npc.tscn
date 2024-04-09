@@ -1,13 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgntbilyh8saj"]
+[gd_scene load_steps=4 format=3 uid="uid://bi262o0q81v6s"]
 
-[ext_resource type="Script" path="res://NPC.gd" id="1_1ov05"]
-[ext_resource type="Texture2D" uid="uid://e2cjomymaaqn" path="res://assets/Misc/character.png" id="1_bld37"]
+[ext_resource type="Texture2D" uid="uid://e2cjomymaaqn" path="res://assets/Bokan/bokan2.png" id="1_bld37"]
+
+[sub_resource type="GDScript" id="GDScript_s7s01"]
+script/source = "extends CharacterBody2D
+
+const speed = 30
+var current_state = IDLE
+
+var dir = Vector2.RIGHT
+var start_pos
+
+var is_idle = true
+var is_chatting = false
+
+var player
+var player_in_chat_zone = false
+
+enum {
+	IDLE,
+	CHATTING	
+}
+
+
+func _on_chat_detection_area_body_entered(body):
+	if body.has_method(\"player\"):
+		player = body
+		player_in_chat_zone = true
+		
+func _on_chat_detection_area_body_exited(body):
+	if body.has_method(\"player\"):
+		player_in_chat_zone = false
+	
+
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptc8l"]
 size = Vector2(31, 37)
 
 [node name="NPC" type="CharacterBody2D"]
-script = ExtResource("1_1ov05")
+script = SubResource("GDScript_s7s01")
 
 [node name="Area2D" type="Area2D" parent="."]
 
