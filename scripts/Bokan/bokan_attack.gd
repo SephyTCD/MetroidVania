@@ -25,7 +25,7 @@ func _process(_delta):
 	if stateMachine.current_state is bokan_wall_slide:
 		player.marker.position.x *= -1
 	
-	if Input.is_action_just_pressed("shoot") and player.shootLock == 0 and player.damaged == 0:
+	if Input.is_action_just_pressed("shoot") and player.shootLock == 0:
 		player.animLock = 1
 		
 		if player.is_on_floor() == false:

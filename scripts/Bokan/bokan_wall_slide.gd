@@ -47,8 +47,8 @@ func _update(_delta : float):
 	elif Input.is_action_just_pressed("jump"):
 		state_transition.emit(self, "bokan_wall_jump")
 
-	elif player.damaged == 1:
-		state_transition.emit(self, "bokan_damage")
+	#elif player.damaged == 1:
+		#state_transition.emit(self, "bokan_damage")
 
 func _exit():
 	player.animLock = 0

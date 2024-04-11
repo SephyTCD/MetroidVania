@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://orf47ogk8l2a"
-path="res://.godot/imported/howler.png-ee731349e29258221e1c51857f8b9a42.ctex"
+path="res://.godot/imported/howler.png-2c6a5a971e5eba17cf5e9d3db7f06ea3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/howler/howler.png"
-dest_files=["res://.godot/imported/howler.png-ee731349e29258221e1c51857f8b9a42.ctex"]
+source_file="res://Assets/enemies/howler/howler.png"
+dest_files=["res://.godot/imported/howler.png-2c6a5a971e5eba17cf5e9d3db7f06ea3.ctex"]
 
 [params]
 

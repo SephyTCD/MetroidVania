@@ -28,15 +28,16 @@ func _update(_delta : float):
 
 	if timer <= 0 or player.is_on_wall() == true or Input.is_action_just_released("wall_run") or player.wallRunAble == 0:
 		state_transition.emit(self, "bokan_air")
-		player.runLock = 1
+		#player.runLock = 1
 
 	if Input.is_action_just_pressed("jump"):
 		state_transition.emit(self, "bokan_jump")
-		player.runLock = 1
+		#player.runLock = 1
 
-	elif player.damaged == 1:
-		state_transition.emit(self, "bokan_damage")
-		player.runLock = 1
+	#elif player.damaged == 1:
+		#state_transition.emit(self, "bokan_damage")
+		#player.runLock = 1
 
 func _exit():
+	player.runLock = 1
 	player.gravity = 1800

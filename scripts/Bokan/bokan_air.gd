@@ -43,8 +43,8 @@ func _update(_delta : float):
 	elif player.is_on_floor():
 		state_transition.emit(self, "bokan_idle")
 
-	elif player.damaged == 1:
-		state_transition.emit(self, "bokan_damage")
+	#elif player.damaged == 1:
+		#state_transition.emit(self, "bokan_damage")
 
 func _exit():
 	pass

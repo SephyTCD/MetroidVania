@@ -7,6 +7,9 @@ var current_state : State
 @export var player : Player
 
 func _ready():
+	
+	player.playerDamaged.connect(_on_player_damaged)
+	
 	for child in get_children():
 		if child is State:
 			child.player = player
@@ -44,3 +47,6 @@ func change_state(source_state : State, new_state_name : String):
 	new_state._enter()
 	
 	current_state = new_state
+	
+func _on_player_damaged():
+	change_state(current_state, "bokan_damage")

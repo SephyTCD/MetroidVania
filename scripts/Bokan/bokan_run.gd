@@ -32,8 +32,8 @@ func _update(_delta : float):
 	elif player.is_on_floor() == false:
 		state_transition.emit(self, "bokan_air")
 
-	elif player.damaged == 1:
-		state_transition.emit(self, "bokan_damage")
+	#elif player.damaged == 1:
+		#state_transition.emit(self, "bokan_damage")
 
 func _exit():
 	player.runLock = 0

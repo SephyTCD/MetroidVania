@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://e2cjomymaaqn"
-path.s3tc="res://.godot/imported/bokan2.png-1560dbd2d5ffb7b9ef68edcc4dd618c5.s3tc.ctex"
+path.s3tc="res://.godot/imported/bokan2.png-98c300b2c66670e9ef65d96a9ca100ff.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Bokan/bokan2.png"
-dest_files=["res://.godot/imported/bokan2.png-1560dbd2d5ffb7b9ef68edcc4dd618c5.s3tc.ctex"]
+source_file="res://Assets/Bokan/bokan2.png"
+dest_files=["res://.godot/imported/bokan2.png-98c300b2c66670e9ef65d96a9ca100ff.s3tc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm3c8lxisxoxl"
-path="res://.godot/imported/provocator.png-d1a9f6577896e5ab1905d7489140e3f4.ctex"
+uid="uid://cbh12myatew5y"
+path="res://.godot/imported/moving_plat1.png-aa653811ec06f8fff925f148052fc18d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemies/provocator/provocator.png"
-dest_files=["res://.godot/imported/provocator.png-d1a9f6577896e5ab1905d7489140e3f4.ctex"]
+source_file="res://Assets/Terrain/Area1/moving_plat1.png"
+dest_files=["res://.godot/imported/moving_plat1.png-aa653811ec06f8fff925f148052fc18d.ctex"]
 
 [params]
 

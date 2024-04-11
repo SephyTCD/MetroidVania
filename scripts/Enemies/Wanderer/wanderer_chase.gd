@@ -7,6 +7,7 @@ var edgeDetect = null
 var anim = "wanderer_trot"
 
 func _enter():
+	
 	wanderer.speed = 150
 	
 	target = get_tree().get_first_node_in_group("Player")

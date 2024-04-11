@@ -13,9 +13,10 @@ var facing = 1
 var wallRunAble = 0
 
 var health = 10
-var damaged = 0
+var maxHealth = 10
 var invTime = 0
 var knockBack = 0
+var onHazard = 0
 
 var gravity = 1800
 
@@ -26,6 +27,8 @@ var shootLock = 0
 
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
+
+signal playerDamaged
 
 func _physics_process(_delta):
 	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
@@ -41,6 +44,14 @@ func _physics_process(_delta):
 	else:
 		modulate.a = 1
 	
+	if onHazard == 1 and invTime <= 0:
+		health -= 3
+		knockBack = facing * -1
+		playerDamaged.emit()
+	
+	if health > maxHealth:
+		health = 10
+
 	if health <= 0:
 		queue_free()
 
@@ -51,6 +62,8 @@ func _physics_process(_delta):
 
 	if moveLock > 0:
 		moveLock -= _delta
+
+	
 
 	if moveLock <= 0:
 		direction = Input.get_axis("ui_left", "ui_right")
@@ -75,14 +88,25 @@ func _damaged(dam, dir):
 		health -= dam
 		knockBack = dir
 		print(health)
-		damaged = 1
+		playerDamaged.emit()
+
+func _heal(heal):
+	health += heal
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	#wallrun
 
 func _on_wall_detect_body_entered(body):
-	wallRunAble = 1
+	print("in")
 
+	if body.has_method("_allowRun"):
+		wallRunAble = 1
+
+	if body.has_method("_spike"):
+		onHazard = 1
 
 func _on_wall_detect_body_exited(body):
+	print("out")
 	wallRunAble = 0
+
+	onHazard = 0

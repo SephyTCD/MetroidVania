@@ -39,8 +39,8 @@ func _update(_delta : float):
 	else:
 		pass
 
-	if distance.length() < 180:
-		state_transition.emit(self, "wanderer_chase")
+	#if distance.length() < 180:
+		#state_transition.emit(self, "wanderer_chase")
 
 func _exit():
 	pass
@@ -51,3 +51,10 @@ func _change_direction():
 		edgeDetect = %edge_detect_right
 	if wanderer.direction < 0:
 		edgeDetect = %edge_detect_left
+
+
+
+
+func _on_walk_sight_body_entered(body):
+	if body == target:
+		state_transition.emit(self, "wanderer_chase")

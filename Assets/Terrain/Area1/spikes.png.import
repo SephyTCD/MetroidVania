@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm3c8lxisxoxl"
-path="res://.godot/imported/provocator.png-d1a9f6577896e5ab1905d7489140e3f4.ctex"
+uid="uid://c4ldesatrjryb"
+path="res://.godot/imported/spikes.png-6aed09325f12960ba96cc42689f2ba70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemies/provocator/provocator.png"
-dest_files=["res://.godot/imported/provocator.png-d1a9f6577896e5ab1905d7489140e3f4.ctex"]
+source_file="res://Assets/Terrain/Area1/spikes.png"
+dest_files=["res://.godot/imported/spikes.png-6aed09325f12960ba96cc42689f2ba70.ctex"]
 
 [params]
 

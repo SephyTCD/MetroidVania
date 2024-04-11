@@ -5,7 +5,7 @@ var time = .25
 
 func _enter():
 	player.invTime = 1
-
+	player.shootLock = 1
 	time = .25
 	player.velocity.x = 200 * player.knockBack
 	player.velocity.y = -200
@@ -34,5 +34,5 @@ func _update(_delta : float):
 func _exit():
 	player.velocity.x = 0
 	player.velocity.y = 0
-	player.damaged = 0
 	player.invTime = 1
+	player.shootLock = 0
