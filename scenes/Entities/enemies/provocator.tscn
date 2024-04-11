@@ -1,0 +1,127 @@
+[gd_scene load_steps=12 format=3 uid="uid://dikywv77hd42x"]
+
+[ext_resource type="Texture2D" uid="uid://bm3c8lxisxoxl" path="res://assets/enemies/provocator/provocator.png" id="1_nlr61"]
+[ext_resource type="Script" path="res://scripts/Enemies/provocator/provocator.gd" id="1_onkvg"]
+[ext_resource type="Script" path="res://scripts/Enemies/provocator/ProvocatorStatemachine.gd" id="3_ntoxt"]
+[ext_resource type="Script" path="res://scripts/Enemies/provocator/provocator_idle.gd" id="4_f356r"]
+[ext_resource type="Script" path="res://scripts/Enemies/provocator/provocator_attack.gd" id="5_fkqxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg686"]
+size = Vector2(20.5, 42.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am8al"]
+size = Vector2(21, 42)
+
+[sub_resource type="Animation" id="Animation_l0lkb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hxwjj"]
+resource_name = "provocator_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jnw1g"]
+resource_name = "provocator_throw"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProvocatorStatemachine/provocator_attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_03354"]
+_data = {
+"RESET": SubResource("Animation_l0lkb"),
+"provocator_idle": SubResource("Animation_hxwjj"),
+"provocator_throw": SubResource("Animation_jnw1g")
+}
+
+[node name="provocator" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_onkvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nlr61")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-4.25, 9.125)
+shape = SubResource("RectangleShape2D_dg686")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.5, 9)
+shape = SubResource("RectangleShape2D_am8al")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-17, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_03354")
+}
+
+[node name="ProvocatorStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "provocator")]
+script = ExtResource("3_ntoxt")
+initial_state = NodePath("provocator_idle")
+provocator = NodePath("..")
+
+[node name="provocator_idle" type="Node" parent="ProvocatorStatemachine"]
+script = ExtResource("4_f356r")
+
+[node name="provocator_attack" type="Node" parent="ProvocatorStatemachine" node_paths=PackedStringArray("marker")]
+script = ExtResource("5_fkqxx")
+marker = NodePath("../../Marker2D")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

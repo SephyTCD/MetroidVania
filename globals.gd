@@ -13,6 +13,17 @@ func _process(delta):
 	# Debug functions for cutscene starting and stopping
 	if Input.is_key_pressed(KEY_Q):
 			inCutscene = true
+			print("cutscene started")
 			
 	if Input.is_key_pressed(KEY_W):
 		inCutscene = false
+		print("cutscene ended")
+		
+	if Input.is_key_pressed((KEY_R)):
+			print(inCutscene)
+		
+func checkForCutsceneFreeze():
+	if (inCutscene == true):
+		return true
+	else:
+		return false

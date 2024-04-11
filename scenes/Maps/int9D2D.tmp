@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtvjdwkctidin"]
+
+[ext_resource type="Texture2D" uid="uid://bmqbiof2dpayc" path="res://assets/Terrain/Area1/area1_terrain.png" id="1_77ueb"]
+[ext_resource type="Texture2D" uid="uid://c7i6vv0uxo5y1" path="res://assets/Terrain/Test/tile.png" id="2_svets"]
+[ext_resource type="PackedScene" uid="uid://55qio502f46k" path="res://scenes/Entities/bokan.tscn" id="3_73bgj"]
+[ext_resource type="PackedScene" uid="uid://1txa4kefkv5i" path="res://scenes/Entities/enemies/perfuit.tscn" id="4_610pd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fywfh"]
+texture = ExtResource("1_77ueb")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:4/0 = 0
+3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:4/0/physics_layer_0/angular_velocity = 0.0
+2:4/0 = 0
+2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:4/0/physics_layer_0/angular_velocity = 0.0
+1:4/0 = 0
+1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:4/0/physics_layer_0/angular_velocity = 0.0
+0:4/0 = 0
+0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:4/0/physics_layer_0/angular_velocity = 0.0
+5:3/0 = 0
+5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:3/0/physics_layer_0/angular_velocity = 0.0
+5:2/0 = 0
+5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:2/0/physics_layer_0/angular_velocity = 0.0
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+6:3/0 = 0
+6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:3/0/physics_layer_0/angular_velocity = 0.0
+5:4/0 = 0
+5:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:4/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pou5q"]
+texture = ExtResource("2_svets")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_gkwbr"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_fywfh")
+sources/2 = SubResource("TileSetAtlasSource_pou5q")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kc2w"]
+size = Vector2(20, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnm30"]
+size = Vector2(223, 79)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_gkwbr")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262161, 2, 0, -196625, 2, 0, -327696, 2, 0, -262160, 2, 0, -196624, 2, 0, -131088, 2, 0, -65552, 2, 0, -16, 2, 0, -327695, 2, 0, -327694, 2, 0, -327693, 2, 0, -327692, 2, 0, -393227, 2, 0, -327691, 2, 0, -458762, 2, 0, -524297, 2, 0, -524296, 2, 0, -524295, 2, 0, -524294, 2, 0, -524293, 2, 0, 262139, 2, 0, -524292, 2, 0, 262140, 2, 0, -524291, 2, 0, -262147, 2, 0, -131075, 2, 0, -65539, 2, 0, -3, 2, 0, 262141, 2, 0, -524290, 2, 0, 262142, 2, 0, -524289, 2, 0, 262143, 2, 0, -589824, 2, 0, 196608, 2, 0, -589823, 2, 0, 196609, 2, 0, -524286, 2, 0, 196610, 2, 0, -524285, 2, 0, 196611, 2, 0, -524284, 2, 0, 196612, 2, 0, -524283, 2, 0, 196613, 2, 0, -655354, 2, 0, -589818, 2, 0, -524282, 2, 0, -720889, 1, 0, -720888, 1, 0, -720887, 1, 0, -720886, 1, 0, -720885, 1, 0, -720884, 1, 0, -720883, 1, 0, -262131, 2, 0, -196595, 2, 0, -131059, 2, 0, -65523, 2, 0, 13, 2, 0, -720882, 1, 0, -262130, 2, 0, -720881, 1, 0, -262129, 2, 0, -720880, 1, 0, -262128, 2, 0, -720879, 1, 0, -262127, 2, 0, -262126, 1, 0, 131077, 2, 0, 131078, 2, 0, 131079, 2, 0, 131080, 2, 0, 131081, 2, 0, 131082, 2, 0, 65548, 2, 0, 65549, 2, 0, 65547, 2, 0, 65546, 2, 0, 196603, 2, 0, 196602, 2, 0, 196601, 2, 0, 131064, 2, 0, 131063, 2, 0, 131062, 2, 0, 131061, 2, 0, 65525, 2, 0, 65524, 2, 0, 65523, 2, 0, 65522, 2, 0, 65521, 2, 0, -131063, 65537, 0, -196599, 65537, 0, -262135, 65537, 0, -327671, 65537, 0, -393207, 65537, 0)
+
+[node name="bokan" parent="." instance=ExtResource("3_73bgj")]
+position = Vector2(-178, -20)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(216, -34)
+shape = SubResource("RectangleShape2D_5kc2w")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(85.5, -34.5)
+shape = SubResource("RectangleShape2D_nnm30")
+
+[node name="perfuit" parent="." instance=ExtResource("4_610pd")]
+position = Vector2(3, 30)
