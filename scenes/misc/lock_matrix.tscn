@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://doflspwdmcmrj"]
+
+[ext_resource type="Script" path="res://scripts/misc/locl_matrix.gd" id="1_15obg"]
+[ext_resource type="Texture2D" uid="uid://dnf2f1y7i8api" path="res://Assets/misc/lock_matrix.png" id="2_121mf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jv7m"]
+
+[node name="lock_matrix" type="CharacterBody2D"]
+script = ExtResource("1_15obg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_121mf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2jv7m")
