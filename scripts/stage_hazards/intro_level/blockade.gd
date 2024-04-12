@@ -14,7 +14,7 @@ var target = null
 
 func _physics_process(delta):
 
-	print(global_position)
+	#print(global_position)
 
 	target = get_tree().get_first_node_in_group("Player")
 
@@ -32,4 +32,5 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body == target:
+		print("dang")
 		state = 1

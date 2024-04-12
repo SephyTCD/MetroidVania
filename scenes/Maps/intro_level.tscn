@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://dtvjdwkctidin"]
 
 [ext_resource type="Texture2D" uid="uid://bmqbiof2dpayc" path="res://Assets/Terrain/Area1/area1_terrain.png" id="1_77ueb"]
-[ext_resource type="Texture2D" uid="uid://c7i6vv0uxo5y1" path="res://Assets/Terrain/Test/tile.png" id="2_svets"]
+[ext_resource type="Texture2D" uid="uid://de62x3drsqrtm" path="res://Assets/Terrain/Test/tile.png" id="2_svets"]
 [ext_resource type="PackedScene" uid="uid://55qio502f46k" path="res://scenes/Entities/bokan.tscn" id="3_73bgj"]
 [ext_resource type="Script" path="res://scripts/stage_hazards/intro_level/back_wall_intro.gd" id="4_oi3gf"]
-[ext_resource type="Texture2D" uid="uid://cfql6xqajmasl" path="res://Assets/Terrain/Area1/area1_wall.png" id="4_opasa"]
+[ext_resource type="Texture2D" uid="uid://c5tf0r5u45bbb" path="res://Assets/Terrain/Area1/area1_wall.png" id="4_opasa"]
 [ext_resource type="PackedScene" uid="uid://dikywv77hd42x" path="res://scenes/Entities/enemies/provocator.tscn" id="5_alb4a"]
 [ext_resource type="PackedScene" uid="uid://1txa4kefkv5i" path="res://scenes/Entities/enemies/perfuit.tscn" id="6_x0ven"]
 [ext_resource type="PackedScene" uid="uid://blshcrj4mrra4" path="res://scenes/misc/area_2d2.tscn" id="8_b7d18"]

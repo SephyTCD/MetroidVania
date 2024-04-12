@@ -26,17 +26,15 @@ func _enter():
 
 func _update(_delta : float):
 
-	if edgeDetect == %edge_detect_right:
-		print("right")
-	if edgeDetect == %edge_detect_left:
-		print("left")
+	#if edgeDetect == %edge_detect_right:
+		#print("right")
+	#if edgeDetect == %edge_detect_left:
+		#print("left")
 
 	if wanderer.direction > 0:
 		edgeDetect = %edge_detect_right
 	if wanderer.direction < 0:
 		edgeDetect = %edge_detect_left
-
-	print(wanderer.direction)
 	
 	if wanderer.velocity.x == 0:
 		anim = "wanderer_idle"

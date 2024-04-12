@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://db3ad20nh2mp0"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/drifter/drifter.gd" id="1_1v505"]
-[ext_resource type="Texture2D" uid="uid://l1km46u7wwu7" path="res://Assets/enemies/drifter/drifter.png" id="1_fk0gn"]
+[ext_resource type="Texture2D" uid="uid://cdakiu5pt5iti" path="res://Assets/enemies/drifter/drifter.png" id="1_fk0gn"]
 [ext_resource type="Script" path="res://scripts/Enemies/drifter/DrifterStatemachine.gd" id="3_ocjuh"]
 [ext_resource type="Script" path="res://scripts/Enemies/drifter/drifter_wander.gd" id="4_kxv70"]
 [ext_resource type="Script" path="res://scripts/Enemies/drifter/drifter_dash.gd" id="5_vfpt4"]

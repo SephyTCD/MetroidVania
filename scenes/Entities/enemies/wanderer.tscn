@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cyb5dc1k2qepn"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer.gd" id="1_02eas"]
-[ext_resource type="Texture2D" uid="uid://dksyaas5mvi8j" path="res://Assets/enemies/Wanderer/wanderer.png" id="1_vvhct"]
+[ext_resource type="Texture2D" uid="uid://bvv2ixc60sivy" path="res://Assets/enemies/Wanderer/wanderer.png" id="1_vvhct"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/WandererStatemachine.gd" id="3_gkwtq"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer_walk.gd" id="4_hj3jt"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer_chase.gd" id="5_s03io"]
