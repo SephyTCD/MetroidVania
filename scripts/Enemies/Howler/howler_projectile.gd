@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name howler_projectile
 
 var speed = 500.0
-var time = .35
+var time = .50
 var damage = 1
 var direction = 1
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://e2cjomymaaqn"
-path="res://.godot/imported/character.png-310d40f0500f5e0a427153616aef0c5f.ctex"
+path="res://.godot/imported/bokan2.png-98c300b2c66670e9ef65d96a9ca100ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Misc/character.png"
-dest_files=["res://.godot/imported/character.png-310d40f0500f5e0a427153616aef0c5f.ctex"]
+source_file="res://Assets/Bokan/bokan2.png"
+dest_files=["res://.godot/imported/bokan2.png-98c300b2c66670e9ef65d96a9ca100ff.ctex"]
 
 [params]
 

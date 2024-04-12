@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c71s1t1t2hu33"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/Howler/howler_projectile.gd" id="1_ks10k"]
-[ext_resource type="Texture2D" uid="uid://dmpnwkm7xmv2w" path="res://assets/enemies/howler/howler_projectile.png" id="1_ukyag"]
+[ext_resource type="Texture2D" uid="uid://dmpnwkm7xmv2w" path="res://Assets/enemies/howler/howler_projectile.png" id="1_ukyag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kng36"]
 size = Vector2(16, 16)

@@ -178,6 +178,7 @@ shape = SubResource("RectangleShape2D_ffo8h")
 disabled = true
 
 [node name="walkSight" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 3
 
@@ -187,13 +188,11 @@ shape = SubResource("RectangleShape2D_ijkdj")
 
 [node name="edge_detect_left" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(-19, 10)
 target_position = Vector2(0, 28)
 
 [node name="edge_detect_right" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(19, 10)
 target_position = Vector2(0, 27)
 
