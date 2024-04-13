@@ -38,6 +38,8 @@ func _physics_process(_delta):
 #//////////////////////////////////////////////////////////////////////////////
 	#Health details
 	
+	print(wallRunAble)
+	
 	if invTime > 0:
 		invTime -= _delta
 		modulate.a = 0.5

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gtp023r4202b"
-path="res://.godot/imported/rundirtR.png-d0e7ea02c9e4eb0a7ce514fde264c43e.ctex"
+uid="uid://b7l67roaya572"
+path="res://.godot/imported/lost_envoy_canis.png-8052bb4fa2c139261eed5a7d0ec846ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/rundirtR.png"
-dest_files=["res://.godot/imported/rundirtR.png-d0e7ea02c9e4eb0a7ce514fde264c43e.ctex"]
+source_file="res://Assets/enemies/lost_envoy_canis/lost_envoy_canis.png"
+dest_files=["res://.godot/imported/lost_envoy_canis.png-8052bb4fa2c139261eed5a7d0ec846ee.ctex"]
 
 [params]
 

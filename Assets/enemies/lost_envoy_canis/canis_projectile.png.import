@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci3lnurdich6i"
-path="res://.godot/imported/pathPBLcorner.png-307684e50001dffd057fcd10230cf0a8.ctex"
+uid="uid://bo82uydhd0pe0"
+path="res://.godot/imported/canis_projectile.png-18d1634f302049f7293a91b3b7a13fc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/pathPBLcorner.png"
-dest_files=["res://.godot/imported/pathPBLcorner.png-307684e50001dffd057fcd10230cf0a8.ctex"]
+source_file="res://Assets/enemies/lost_envoy_canis/canis_projectile.png"
+dest_files=["res://.godot/imported/canis_projectile.png-18d1634f302049f7293a91b3b7a13fc7.ctex"]
 
 [params]
 
