@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://1txa4kefkv5i"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/Perfuit/perfuit.gd" id="1_ihodb"]
-[ext_resource type="Texture2D" uid="uid://b7w6no5di8es2" path="res://assets/enemies/perfuit/perfuit.png" id="1_u0osv"]
+[ext_resource type="Texture2D" uid="uid://b7w6no5di8es2" path="res://Assets/enemies/perfuit/perfuit.png" id="1_u0osv"]
 [ext_resource type="Script" path="res://scripts/Enemies/Perfuit/PerfuitStatemachine.gd" id="3_4b7cr"]
 [ext_resource type="Script" path="res://scripts/Enemies/Perfuit/perfuit_attack.gd" id="4_4b2jj"]
 [ext_resource type="Script" path="res://scripts/Enemies/Perfuit/perfuit_walk.gd" id="4_ng65l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ilnc"]
-size = Vector2(28, 27)
+size = Vector2(26, 20)
 
 [sub_resource type="Animation" id="Animation_pbmpo"]
 length = 0.001
@@ -22,6 +22,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(29, 15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, 20)]
 }
 
 [sub_resource type="Animation" id="Animation_qjpma"]
@@ -55,6 +91,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"_end"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, 15)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 5)]
 }
 
 [sub_resource type="Animation" id="Animation_v1dn7"]
@@ -195,6 +255,30 @@ tracks/1/keys = {
 "method": &"_end"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(29, 15)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 6)]
+}
 
 [sub_resource type="Animation" id="Animation_6crwc"]
 resource_name = "perfuit_walk"
@@ -212,6 +296,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, 15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, 20)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qapot"]
 _data = {
@@ -222,7 +342,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vq47h"]
-size = Vector2(28, 20)
+size = Vector2(29, 15)
 
 [node name="perfuit" type="CharacterBody2D"]
 collision_layer = 4
@@ -235,7 +355,7 @@ vframes = 2
 frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 2.5)
+position = Vector2(-3, 6)
 shape = SubResource("RectangleShape2D_6ilnc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -248,7 +368,7 @@ collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 6)
+position = Vector2(4, 6)
 shape = SubResource("RectangleShape2D_vq47h")
 
 [node name="edge_detect_left" type="RayCast2D" parent="."]

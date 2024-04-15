@@ -6,6 +6,7 @@ var jumpSpeed = -500
 var direction = 1
 var damage = 2
 var boxTime = 0
+var blinkTime = 0
 
 var health = 60
 
@@ -17,6 +18,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite : Sprite2D = $Sprite2D
 
 func _physics_process(_delta):
+	
+	if blinkTime > 0:
+		blinkTime -= _delta
+		modulate.a = 0.5
+	else:
+		modulate.a = 1
 	
 	if health <= 0:
 		queue_free()
@@ -39,6 +46,7 @@ func _physics_process(_delta):
 
 func _damaged(dam):
 	health -= dam
+	blinkTime = .1
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("_damaged"):

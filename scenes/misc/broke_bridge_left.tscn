@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://u6a8lr1mlspu"]
+
+[ext_resource type="Script" path="res://scripts/misc/broke_bridge_left.gd" id="1_qf8ku"]
+[ext_resource type="Texture2D" uid="uid://c42d3ikojkex6" path="res://Assets/Terrain/Area1/broke_bridge_left.png" id="2_jtb25"]
+
+[node name="broke_bridge_left" type="CharacterBody2D"]
+script = ExtResource("1_qf8ku")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jtb25")

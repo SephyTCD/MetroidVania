@@ -156,14 +156,14 @@ layer_0/tile_data = PackedInt32Array(-196551, 0, 0, -196552, 0, 0, -196553, 0, 0
 script = ExtResource("3_l6gfg")
 
 [node name="bokan" parent="." instance=ExtResource("2_e7u8e")]
-position = Vector2(722, 5)
+position = Vector2(448, 8)
 
 [node name="howler" parent="." instance=ExtResource("3_fashv")]
-position = Vector2(20, 12)
+position = Vector2(-256, 12)
 direction = -1
 
 [node name="wanderer" parent="." instance=ExtResource("4_yjask")]
-position = Vector2(-763, -8)
+position = Vector2(243, -4)
 
 [node name="drifter" parent="." instance=ExtResource("5_f80bm")]
 position = Vector2(152, -80)

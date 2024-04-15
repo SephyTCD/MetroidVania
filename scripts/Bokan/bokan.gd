@@ -6,6 +6,7 @@ var jump_speed = -500
 
 var runLock = 0
 var moveLock = 0
+var freeze = 0
 
 var direction = 0
 var facing = 1
@@ -34,11 +35,8 @@ func _physics_process(_delta):
 	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
 		return
 	
-	
 #//////////////////////////////////////////////////////////////////////////////
 	#Health details
-	
-	print(wallRunAble)
 	
 	if invTime > 0:
 		invTime -= _delta

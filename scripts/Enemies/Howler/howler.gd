@@ -11,6 +11,9 @@ var boxTime = 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var bullet = preload("res://scenes/misc/deathspark.tscn")
+
+
 func _physics_process(_delta):
 	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
 		return

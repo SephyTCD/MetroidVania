@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://x4xk0038ax2d"]
+
+[ext_resource type="Script" path="res://scripts/Enemies/lost_envoy_canis/wake_spark.gd" id="1_s1tvb"]
+[ext_resource type="Texture2D" uid="uid://dsi87c2h6a3op" path="res://Assets/enemies/lost_envoy_canis/wake_sparks.png" id="2_4t8gh"]
+
+[sub_resource type="Animation" id="Animation_qhk5s"]
+resource_name = "spark"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gl3f8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b02rc"]
+_data = {
+"RESET": SubResource("Animation_gl3f8"),
+"spark": SubResource("Animation_qhk5s")
+}
+
+[node name="wake_spark" type="CharacterBody2D"]
+script = ExtResource("1_s1tvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4t8gh")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b02rc")
+}

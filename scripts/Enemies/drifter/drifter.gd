@@ -6,15 +6,29 @@ var direction = 1
 var damage = 1
 var health = 6
 var boxTime = 0
+var blinkTime = 0
 
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
+
+var bullet = preload("res://scenes/misc/deathspark.tscn")
+
 
 func _physics_process(_delta):
 	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
 		return
 		
+	if blinkTime > 0:
+		blinkTime -= _delta
+		modulate.a = 0.5
+	else:
+		modulate.a = 1
+		
 	if health <= 0:
+		var inst = bullet.instantiate()
+		get_tree().current_scene.add_child(inst)
+		inst.global_position = global_position
+		
 		queue_free()
 
 	if boxTime > 0:
@@ -40,4 +54,5 @@ func _on_area_2d_body_entered(body):
 
 func _damaged(dam):
 	health -= dam
-
+	blinkTime = .1
+	
