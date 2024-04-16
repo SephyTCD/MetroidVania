@@ -53,4 +53,3 @@ func _on_area_2d_body_entered(body):
 func _damaged(dam):
 	health -= dam
 	blinkTime = .1
-	

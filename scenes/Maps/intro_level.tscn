@@ -304,7 +304,7 @@ physics_layer_0/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_4xhxq")
 sources/1 = SubResource("TileSetAtlasSource_u8va6")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
