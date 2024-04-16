@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6qnpfj5l7gqq"]
+
+[ext_resource type="Texture2D" uid="uid://dikgmsylwt2ns" path="res://Assets/Terrain/Area1/boss_door.png" id="1_bho6l"]
+[ext_resource type="Script" path="res://scripts/misc/boss_door_static.gd" id="1_yyc62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67qym"]
+size = Vector2(31, 80)
+
+[node name="boss_door_static" type="CharacterBody2D"]
+script = ExtResource("1_yyc62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8.5, 8)
+shape = SubResource("RectangleShape2D_67qym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bho6l")
+hframes = 5
+vframes = 2

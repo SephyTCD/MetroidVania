@@ -4,7 +4,7 @@ class_name canis_wake
 var sparkOffsetx = 0
 var sparkOffsety = 0
 var sparkTrigger = 0
-var sparkDelay = .1
+var sparkDelay = 2
 var distance = 0
 var target = null
 
@@ -16,8 +16,6 @@ func _enter():
 	target = get_tree().get_first_node_in_group("Player")
 
 func _update(_delta : float):
-	
-	print(sparkTrigger)
 	
 	if sparkTrigger == 0:
 		anim = "canis_sleep"
