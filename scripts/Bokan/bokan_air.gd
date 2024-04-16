@@ -41,6 +41,7 @@ func _update(_delta : float):
 			state_transition.emit(self, "bokan_wall_slide")
 
 	elif player.is_on_floor():
+		$"../../sounds/land".play()
 		state_transition.emit(self, "bokan_idle")
 
 	#elif player.damaged == 1:

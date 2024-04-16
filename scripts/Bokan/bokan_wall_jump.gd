@@ -11,7 +11,7 @@ func _enter():
 	if player.facing == 1:
 		player.animations.play("wall_kick")
 		player.sprite.flip_h = true
-
+	$"../../sounds/wall_jump".play()
 	time = .20
 	player.shootLock = 1
 	player.velocity.x = 0
@@ -40,4 +40,5 @@ func _kick():
 	
 
 func _shootFree():
+	
 	player.shootLock = 0

@@ -27,6 +27,7 @@ func _update(_delta : float):
 		state_transition.emit(self, "bokan_idle")
 
 	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
+		$"../../sounds/jump".play()
 		state_transition.emit(self, "bokan_jump")
 
 	elif player.is_on_floor() == false:

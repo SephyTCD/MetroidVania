@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cyxmpcsyaf7sm" path="res://Assets/misc/hitspark.png" id="1_7qhwe"]
 [ext_resource type="Script" path="res://scripts/misc/hitspark.gd" id="1_ag22s"]
-[ext_resource type="AudioStream" uid="uid://wr2wqfh02sk0" path="res://Assets/sounds/effects/hit3.wav" id="3_pg8jr"]
+[ext_resource type="AudioStream" uid="uid://nsfpx3wg42dj" path="res://Assets/sounds/effects/hit9.wav" id="3_586vn"]
 
 [sub_resource type="Animation" id="Animation_6nua6"]
 length = 0.001
@@ -76,4 +76,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_pg8jr")
+stream = ExtResource("3_586vn")
+volume_db = -6.559
+pitch_scale = 0.99

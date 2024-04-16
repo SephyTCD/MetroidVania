@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dtvjdwkctidin"]
+[gd_scene load_steps=27 format=3 uid="uid://dtvjdwkctidin"]
 
 [ext_resource type="Texture2D" uid="uid://bmqbiof2dpayc" path="res://Assets/Terrain/Area1/area1_terrain.png" id="1_77ueb"]
 [ext_resource type="Texture2D" uid="uid://c2fdsn5i8tj4x" path="res://Assets/Terrain/Area1/area1_background.png" id="1_r6h1r"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://imwc67cxxq0p" path="res://Assets/Terrain/Area1/bridge.png" id="5_cn32m"]
 [ext_resource type="Script" path="res://scripts/stage_hazards/intro_level/bridge.gd" id="6_1ni0o"]
 [ext_resource type="PackedScene" uid="uid://1txa4kefkv5i" path="res://scenes/Entities/enemies/perfuit.tscn" id="6_x0ven"]
+[ext_resource type="Script" path="res://scripts/misc/bridgesound.gd" id="7_sgw8y"]
+[ext_resource type="AudioStream" uid="uid://ci3ikm5teda7v" path="res://Assets/sounds/effects/bridgebreak.wav" id="7_utd20"]
 [ext_resource type="PackedScene" uid="uid://blshcrj4mrra4" path="res://scenes/misc/area_2d2.tscn" id="8_b7d18"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bc1e4"]
@@ -260,6 +262,9 @@ sources/0 = SubResource("TileSetAtlasSource_ktre8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0n13"]
 size = Vector2(20, 227)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy6o5"]
+size = Vector2(20, 227)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xhxq"]
 texture = ExtResource("2_svets")
 0:0/0 = 0
@@ -353,6 +358,19 @@ position = Vector2(3806.32, -180.8)
 [node name="Marker2D4" type="Marker2D" parent="bridge"]
 position = Vector2(3883.54, -181.77)
 
+[node name="bridgesound" type="Node" parent="."]
+script = ExtResource("7_sgw8y")
+
+[node name="Area2D" type="Area2D" parent="bridgesound"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bridgesound/Area2D"]
+position = Vector2(3768.6, -307.5)
+shape = SubResource("RectangleShape2D_iy6o5")
+
+[node name="bridgesound" type="AudioStreamPlayer" parent="bridgesound"]
+stream = ExtResource("7_utd20")
+
 [node name="back_wall" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_futc8")
 format = 2
@@ -360,7 +378,7 @@ layer_0/tile_data = PackedInt32Array(-458700, 65537, 1, -393164, 65537, 1, -3931
 script = ExtResource("4_oi3gf")
 
 [node name="bokan" parent="." instance=ExtResource("3_73bgj")]
-position = Vector2(-195, -1)
+position = Vector2(-187, -5)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -422,3 +440,4 @@ position = Vector2(2722, -575)
 position = Vector2(3778, 335)
 
 [connection signal="body_entered" from="bridge/Area2D" to="bridge" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="bridgesound/Area2D" to="bridgesound" method="_on_area_2d_body_entered"]

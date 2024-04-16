@@ -4,6 +4,7 @@ class_name bokan_damage
 var time = .25
 
 func _enter():
+	$"../../sounds/damage".play()
 	player.invTime = 1
 	player.shootLock = 1
 	time = .25

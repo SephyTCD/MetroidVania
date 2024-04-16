@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://byc2x42xb0dxa"]
+[gd_scene load_steps=27 format=3 uid="uid://byc2x42xb0dxa"]
 
 [ext_resource type="Texture2D" uid="uid://b7l67roaya572" path="res://Assets/enemies/lost_envoy_canis/lost_envoy_canis.png" id="1_e87ix"]
 [ext_resource type="Script" path="res://scripts/Enemies/lost_envoy_canis/lost_envoy_canis.gd" id="1_goxt2"]
@@ -9,6 +9,11 @@
 [ext_resource type="Script" path="res://scripts/Enemies/lost_envoy_canis/canis_shoot.gd" id="7_pra6o"]
 [ext_resource type="Script" path="res://scripts/Enemies/lost_envoy_canis/canis_airshoot.gd" id="8_xvwke"]
 [ext_resource type="Script" path="res://scripts/Enemies/lost_envoy_canis/canis_wake.gd" id="9_oqkcc"]
+[ext_resource type="AudioStream" uid="uid://dgpbi0txp4s15" path="res://Assets/enemies/lost_envoy_canis/stomp.wav" id="10_7ujdg"]
+[ext_resource type="AudioStream" uid="uid://d0n4tvvsoplqg" path="res://Assets/enemies/lost_envoy_canis/run.wav" id="11_tfsou"]
+[ext_resource type="AudioStream" uid="uid://c43qyegvgfgxq" path="res://Assets/enemies/lost_envoy_canis/jump.wav" id="12_sf672"]
+[ext_resource type="AudioStream" uid="uid://jju1jxykgujs" path="res://Assets/enemies/lost_envoy_canis/projectile3.mp3" id="13_aobds"]
+[ext_resource type="AudioStream" uid="uid://bwj5riu65jj0e" path="res://Assets/enemies/lost_envoy_canis/roar.wav" id="14_h2ukm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sjt"]
 size = Vector2(137, 60)
@@ -228,6 +233,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanisStatemachine/canis_airshoot")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_3u0jm"]
 resource_name = "canis_jump"
@@ -291,6 +310,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanisStatemachine/canis_jump")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_kfxqq"]
 resource_name = "canis_run"
@@ -344,6 +377,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanisStatemachine/canis_run")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_sound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_sl45o"]
@@ -410,6 +457,48 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanisStatemachine/canis_shoot")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_e1uut"]
+resource_name = "canis_sleep"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_q0oq0"]
 resource_name = "canis_squat"
@@ -460,6 +549,69 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_itdca"]
+resource_name = "canis_wake"
+length = 4.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 4), Vector2i(0, 4), Vector2i(1, 4), Vector2i(0, 4), Vector2i(1, 4), Vector2i(0, 4), Vector2i(1, 4), Vector2i(0, 4), Vector2i(1, 4)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanisStatemachine/canis_wake")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 3.9, 4, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_freeze"
+}, {
+"args": [],
+"method": &"_sparks_end"
+}, {
+"args": [],
+"method": &"_roar"
+}, {
+"args": [],
+"method": &"_end"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_wuprd"]
@@ -538,93 +690,22 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_itdca"]
-resource_name = "canis_wake"
-length = 4.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.3, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame_coords")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(1, 4), Vector2i(0, 4), Vector2i(1, 4), Vector2i(0, 4), Vector2i(1, 4), Vector2i(0, 4), Vector2i(1, 4), Vector2i(0, 4), Vector2i(1, 4)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanisStatemachine/canis_wake")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.1, 4, 4.8),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanisStatemachine/canis_neutral")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"_freeze"
+"method": &"_sound"
 }, {
 "args": [],
-"method": &"_sparks_end"
-}, {
-"args": [],
-"method": &"_end"
+"method": &"_sound"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_e1uut"]
-resource_name = "canis_sleep"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xa5hj"]
@@ -694,5 +775,25 @@ script = ExtResource("8_xvwke")
 
 [node name="canis_wake" type="Node" parent="CanisStatemachine"]
 script = ExtResource("9_oqkcc")
+
+[node name="sounds" type="Node" parent="."]
+
+[node name="stomp" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("10_7ujdg")
+volume_db = -3.0
+
+[node name="run" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("11_tfsou")
+volume_db = -5.0
+
+[node name="jump" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("12_sf672")
+
+[node name="projectile" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("13_aobds")
+volume_db = -2.0
+
+[node name="roar" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("14_h2ukm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
