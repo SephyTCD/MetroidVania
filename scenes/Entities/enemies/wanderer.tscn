@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://cyb5dc1k2qepn"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer.gd" id="1_02eas"]
-[ext_resource type="Texture2D" uid="uid://dksyaas5mvi8j" path="res://Assets/enemies/Wanderer/wanderer.png" id="1_vvhct"]
+[ext_resource type="Texture2D" uid="uid://bvv2ixc60sivy" path="res://Assets/enemies/Wanderer/wanderer.png" id="1_vvhct"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/WandererStatemachine.gd" id="3_gkwtq"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer_walk.gd" id="4_hj3jt"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer_chase.gd" id="5_s03io"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer_attack.gd" id="6_73cjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyyah"]
-size = Vector2(36.5, 52)
+size = Vector2(35.5, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffo8h"]
 size = Vector2(27, 25)
@@ -154,11 +154,10 @@ vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(3.25, 6)
+position = Vector2(3.75, 6)
 shape = SubResource("RectangleShape2D_dyyah")
 
 [node name="body_hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 3
 
@@ -178,6 +177,7 @@ shape = SubResource("RectangleShape2D_ffo8h")
 disabled = true
 
 [node name="walkSight" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 3
 
@@ -187,13 +187,11 @@ shape = SubResource("RectangleShape2D_ijkdj")
 
 [node name="edge_detect_left" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(-19, 10)
 target_position = Vector2(0, 28)
 
 [node name="edge_detect_right" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(19, 10)
 target_position = Vector2(0, 27)
 

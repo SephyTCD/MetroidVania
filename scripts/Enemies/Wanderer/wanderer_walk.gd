@@ -7,6 +7,10 @@ var walkTime = 3
 var edgeDetect = null
 
 func _enter():
+	
+	$"../../walkSight"/CollisionShape2D.set_deferred("disabled", false)
+
+	
 	if wanderer.direction > 0:
 		edgeDetect = %edge_detect_right
 	if wanderer.direction < 0:

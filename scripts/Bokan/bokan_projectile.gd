@@ -9,6 +9,9 @@ var damage = 1
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 
+var bullet = preload("res://scenes/misc/hitspark.tscn")
+
+
 func _physics_process(_delta):
 	
 	time -= _delta
@@ -20,7 +23,7 @@ func _physics_process(_delta):
 		sprite.flip_h = false
 	if direction < 0:
 		animations.play("spin")
-		sprite.flip_h = false
+		sprite.flip_h = true
 	
 	direction = Input.get_axis("ui_left", "ui_right")
 	
@@ -31,4 +34,8 @@ func _physics_process(_delta):
 func _on_area_2d_body_entered(body):
 	if body.has_method("_damaged"):
 		body._damaged(damage)
+		
+		var inst = bullet.instantiate()
+		get_tree().current_scene.add_child(inst)
+		inst.global_position = global_position
 	queue_free()

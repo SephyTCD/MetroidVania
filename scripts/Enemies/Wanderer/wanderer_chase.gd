@@ -8,6 +8,8 @@ var anim = "wanderer_trot"
 
 func _enter():
 	
+	$"../../walkSight"/CollisionShape2D.set_deferred("disabled", true)
+	
 	wanderer.speed = 150
 	
 	target = get_tree().get_first_node_in_group("Player")
@@ -29,18 +31,24 @@ func _update(_delta : float):
 	#if edgeDetect == %edge_detect_left:
 		#print("left")
 
+	if wanderer.direction > 0:
+		edgeDetect = %edge_detect_right
+	if wanderer.direction < 0:
+		edgeDetect = %edge_detect_left
 	
 	if wanderer.velocity.x == 0:
 		anim = "wanderer_idle"
-	else:
+	if wanderer.velocity.x > 0:
 		anim = "wanderer_trot"
 	
-	if wanderer.direction == -1 and wanderer.speed != 0:
+	if wanderer.direction == -1:
 		wanderer.animations.play(anim)
 		wanderer.sprite.flip_h = false
-	if wanderer.direction == 1 and wanderer.speed != 0:
+	if wanderer.direction == 1:
 		wanderer.animations.play(anim)
 		wanderer.sprite.flip_h = true
+	
+	
 	
 	if target != null:
 		distance = target.global_position - wanderer.global_position
@@ -55,7 +63,9 @@ func _update(_delta : float):
 	if edgeDetect.is_colliding() == false:
 		wanderer.speed = 0
 		wanderer.velocity.x = 0
-
+	if edgeDetect.is_colliding() == true:
+		wanderer.speed = 150
+		wanderer.velocity.x = 150
 	
 	if distance.length() < 50:
 		state_transition.emit(self, "wanderer_attack")

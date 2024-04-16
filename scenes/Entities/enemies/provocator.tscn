@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://dikywv77hd42x"]
 
-[ext_resource type="Texture2D" uid="uid://bm3c8lxisxoxl" path="res://assets/enemies/provocator/provocator.png" id="1_nlr61"]
+[ext_resource type="Texture2D" uid="uid://bm3c8lxisxoxl" path="res://Assets/enemies/provocator/provocator.png" id="1_nlr61"]
 [ext_resource type="Script" path="res://scripts/Enemies/provocator/provocator.gd" id="1_onkvg"]
 [ext_resource type="Script" path="res://scripts/Enemies/provocator/ProvocatorStatemachine.gd" id="3_ntoxt"]
 [ext_resource type="Script" path="res://scripts/Enemies/provocator/provocator_idle.gd" id="4_f356r"]
 [ext_resource type="Script" path="res://scripts/Enemies/provocator/provocator_attack.gd" id="5_fkqxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dg686"]
-size = Vector2(20.5, 42.25)
+size = Vector2(19, 40.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_am8al"]
-size = Vector2(21, 42)
+size = Vector2(19, 40)
 
 [sub_resource type="Animation" id="Animation_l0lkb"]
 length = 0.001
@@ -92,8 +92,7 @@ texture = ExtResource("1_nlr61")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-4.25, 9.125)
+position = Vector2(-3.5, 10.125)
 shape = SubResource("RectangleShape2D_dg686")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -101,7 +100,7 @@ collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4.5, 9)
+position = Vector2(-3.5, 10)
 shape = SubResource("RectangleShape2D_am8al")
 
 [node name="Marker2D" type="Marker2D" parent="."]

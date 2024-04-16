@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dkrqj0yqgqg0m"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/Howler/howler.gd" id="1_7r1so"]
-[ext_resource type="Texture2D" uid="uid://orf47ogk8l2a" path="res://Assets/enemies/howler/howler.png" id="1_uwxa5"]
+[ext_resource type="Texture2D" uid="uid://brkn245ymky3o" path="res://Assets/enemies/howler/howler.png" id="1_uwxa5"]
 [ext_resource type="Script" path="res://scripts/Enemies/Howler/HowlerStatemachine.gd" id="3_enjoo"]
 [ext_resource type="Script" path="res://scripts/Enemies/Howler/howler_idle.gd" id="4_ooc4k"]
 [ext_resource type="Script" path="res://scripts/Enemies/Howler/howler_shoot.gd" id="5_3t3em"]

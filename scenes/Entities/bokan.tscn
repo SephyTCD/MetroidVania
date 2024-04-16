@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://55qio502f46k"]
 
 [ext_resource type="Script" path="res://scripts/Bokan/bokan.gd" id="1_6hup2"]
-[ext_resource type="Texture2D" uid="uid://ddwwyppl4v140" path="res://Assets/Bokan/bokan2b.png" id="2_y8vaq"]
+[ext_resource type="Texture2D" uid="uid://calioikk4wwod" path="res://Assets/Bokan/bokan2b.png" id="2_y8vaq"]
 [ext_resource type="Script" path="res://scripts/Bokan/BokanStatemachine.gd" id="3_m2t1x"]
 [ext_resource type="Script" path="res://scripts/Bokan/bokan_idle.gd" id="4_o878r"]
 [ext_resource type="Script" path="res://scripts/Bokan/bokan_run.gd" id="5_aq04k"]
@@ -346,7 +346,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wijv0"]
-size = Vector2(13, 11)
+size = Vector2(13, 11.5)
 
 [node name="bokan" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(-1, 0)
@@ -355,6 +355,7 @@ collision_mask = 3
 script = ExtResource("1_6hup2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -7)
 texture = ExtResource("2_y8vaq")
 hframes = 5
@@ -382,8 +383,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_detect"]
-visible = false
-position = Vector2(0.5, 8.5)
+position = Vector2(-0.5, 8.25)
 shape = SubResource("RectangleShape2D_wijv0")
 
 [node name="BokanStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "player")]

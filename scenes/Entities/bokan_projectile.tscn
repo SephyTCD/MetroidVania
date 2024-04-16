@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://phlpabtd5t15"]
 
 [ext_resource type="Script" path="res://scripts/Bokan/bokan_projectile.gd" id="1_8mu0x"]
-[ext_resource type="Texture2D" uid="uid://d188wowsi72h1" path="res://assets/Bokan/paper.png" id="1_wynf7"]
+[ext_resource type="Texture2D" uid="uid://bliesmr6xocge" path="res://Assets/Bokan/paper.png" id="1_wynf7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dofu0"]
 size = Vector2(20, 18)

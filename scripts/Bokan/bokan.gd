@@ -6,6 +6,7 @@ var jump_speed = -500
 
 var runLock = 0
 var moveLock = 0
+var freeze = 0
 
 var direction = 0
 var facing = 1
@@ -33,7 +34,6 @@ signal playerDamaged
 func _physics_process(_delta):
 	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
 		return
-	
 	
 #//////////////////////////////////////////////////////////////////////////////
 	#Health details
@@ -97,7 +97,6 @@ func _heal(heal):
 	#wallrun
 
 func _on_wall_detect_body_entered(body):
-	print("in")
 
 	if body.has_method("_allowRun"):
 		wallRunAble = 1
@@ -106,7 +105,6 @@ func _on_wall_detect_body_entered(body):
 		onHazard = 1
 
 func _on_wall_detect_body_exited(body):
-	print("out")
 	wallRunAble = 0
 
 	onHazard = 0
