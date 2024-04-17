@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cyb5dc1k2qepn"]
+[gd_scene load_steps=17 format=3 uid="uid://cyb5dc1k2qepn"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer.gd" id="1_02eas"]
 [ext_resource type="Texture2D" uid="uid://bvv2ixc60sivy" path="res://Assets/enemies/Wanderer/wanderer.png" id="1_vvhct"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer_walk.gd" id="4_hj3jt"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer_chase.gd" id="5_s03io"]
 [ext_resource type="Script" path="res://scripts/Enemies/Wanderer/wanderer_attack.gd" id="6_73cjy"]
+[ext_resource type="AudioStream" uid="uid://bcmwdpxsj1pja" path="res://Assets/enemies/Wanderer/swing.wav" id="7_tvmam"]
+[ext_resource type="AudioStream" uid="uid://b1fohdpk6b1u1" path="res://Assets/enemies/Wanderer/windup.wav" id="8_4myvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyyah"]
 size = Vector2(35.5, 52)
@@ -85,6 +87,20 @@ tracks/2/keys = {
 }, {
 "args": [],
 "method": &"_break"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WandererStatemachine/wanderer_attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_sound"
 }]
 }
 
@@ -213,6 +229,16 @@ script = ExtResource("5_s03io")
 
 [node name="wanderer_attack" type="Node" parent="WandererStatemachine"]
 script = ExtResource("6_73cjy")
+
+[node name="sounds" type="Node" parent="."]
+
+[node name="swing" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("7_tvmam")
+volume_db = -4.0
+
+[node name="windup" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("8_4myvg")
+volume_db = -4.0
 
 [connection signal="body_entered" from="body_hitbox" to="." method="_on_body_hitbox_body_entered"]
 [connection signal="body_entered" from="swing_hitbox" to="." method="_on_swing_hitbox_body_entered"]

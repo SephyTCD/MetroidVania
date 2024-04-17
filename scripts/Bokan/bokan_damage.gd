@@ -8,8 +8,8 @@ func _enter():
 	player.invTime = 1
 	player.shootLock = 1
 	time = .25
-	player.velocity.x = 200 * player.knockBack
-	player.velocity.y = -200
+	player.velocity.x = player.knockForce * player.knockBack
+	player.velocity.y = player.knockUp
 
 func _update(_delta : float):
 #//////////////////////////////////////////////////////////////////////////////
@@ -33,6 +33,8 @@ func _update(_delta : float):
 		state_transition.emit(self, "bokan_idle")
 
 func _exit():
+	player.knockForce = 200
+	player.knockUp = -200
 	player.velocity.x = 0
 	player.velocity.y = 0
 	player.invTime = 1

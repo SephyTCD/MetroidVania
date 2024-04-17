@@ -1,0 +1,161 @@
+[gd_scene load_steps=17 format=3 uid="uid://j8rtus14n024"]
+
+[ext_resource type="Texture2D" uid="uid://cvcl07t7e7ofl" path="res://Assets/alandra.png" id="1_p8dg5"]
+[ext_resource type="Script" path="res://scripts/alandra/alandra.gd" id="1_pwk0q"]
+[ext_resource type="Script" path="res://scripts/alandra/alandraStatemachine.gd" id="3_5oqpw"]
+[ext_resource type="Script" path="res://scripts/alandra/alandra_idle.gd" id="4_vu22d"]
+[ext_resource type="Script" path="res://scripts/alandra/alandra_talking.gd" id="5_rw6xo"]
+[ext_resource type="Script" path="res://scripts/alandra/alandra_leaving.gd" id="6_gv4gl"]
+[ext_resource type="Script" path="res://scripts/alandra/alandra_shocked.gd" id="7_8rc5r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv26b"]
+size = Vector2(18, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyia0"]
+size = Vector2(61, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyweq"]
+size = Vector2(187.8, 74)
+
+[sub_resource type="Animation" id="Animation_jfhts"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qemtn"]
+resource_name = "alandra_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0ncyn"]
+resource_name = "alandra_jump"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_1u3n4"]
+resource_name = "alandra_run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rbxcb"]
+resource_name = "alandra_surprise"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sblqx"]
+_data = {
+"RESET": SubResource("Animation_jfhts"),
+"alandra_idle": SubResource("Animation_qemtn"),
+"alandra_jump": SubResource("Animation_0ncyn"),
+"alandra_run": SubResource("Animation_1u3n4"),
+"alandra_surprise": SubResource("Animation_rbxcb")
+}
+
+[node name="alandra" type="CharacterBody2D"]
+script = ExtResource("1_pwk0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p8dg5")
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_nv26b")
+
+[node name="event1" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="event1"]
+position = Vector2(-40.5, -9)
+shape = SubResource("RectangleShape2D_wyia0")
+
+[node name="event2" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="event2"]
+position = Vector2(-101.5, -16)
+shape = SubResource("RectangleShape2D_tyweq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sblqx")
+}
+
+[node name="alandraStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "alandra")]
+script = ExtResource("3_5oqpw")
+initial_state = NodePath("alandra_idle")
+alandra = NodePath("..")
+
+[node name="alandra_idle" type="Node" parent="alandraStatemachine"]
+script = ExtResource("4_vu22d")
+
+[node name="alandra_talking" type="Node" parent="alandraStatemachine"]
+script = ExtResource("5_rw6xo")
+
+[node name="alandra_leaving" type="Node" parent="alandraStatemachine"]
+script = ExtResource("6_gv4gl")
+
+[node name="alandra_shocked" type="Node" parent="alandraStatemachine"]
+script = ExtResource("7_8rc5r")
+
+[connection signal="body_entered" from="event1" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="event2" to="." method="_on_event_2_body_entered"]

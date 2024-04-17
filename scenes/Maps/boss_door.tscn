@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7nrodavymulj"]
+[gd_scene load_steps=15 format=3 uid="uid://c7nrodavymulj"]
 
 [ext_resource type="Texture2D" uid="uid://dikgmsylwt2ns" path="res://Assets/Terrain/Area1/boss_door.png" id="1_0nfto"]
 [ext_resource type="Script" path="res://scripts/misc/boss_door.gd" id="1_7nnfd"]
@@ -9,6 +9,45 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqr4j"]
 size = Vector2(32, 80)
+
+[sub_resource type="Animation" id="Animation_g6y85"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_aat53"]
 resource_name = "materialize"
@@ -63,45 +102,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_g6y85"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_bgapt"]
@@ -183,6 +183,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d77ma"]
 size = Vector2(324, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkqti"]
+size = Vector2(36, 73)
+
 [node name="door_body" type="CharacterBody2D"]
 script = ExtResource("1_7nnfd")
 
@@ -209,6 +212,14 @@ collision_mask = 3
 position = Vector2(167, 82)
 shape = SubResource("RectangleShape2D_d77ma")
 
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-8, 8)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(72, 0)
+shape = SubResource("RectangleShape2D_qkqti")
+
 [node name="bossdoorStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "bossdoor")]
 script = ExtResource("3_pne70")
 initial_state = NodePath("bossdoor_hidden")
@@ -224,3 +235,4 @@ script = ExtResource("5_y3wkf")
 script = ExtResource("6_uej8o")
 
 [connection signal="body_entered" from="Area2D" to="bossdoorStatemachine/bossdoor_hidden" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="bossdoorStatemachine/bossdoor_hidden" method="_on_area_2d_2_body_entered"]

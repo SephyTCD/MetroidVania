@@ -17,6 +17,8 @@ var health = 10
 var maxHealth = 10
 var invTime = 0
 var knockBack = 0
+var knockForce = 200
+var knockUp = -200
 var onHazard = 0
 
 var gravity = 1800
@@ -37,6 +39,8 @@ func _physics_process(_delta):
 	
 #//////////////////////////////////////////////////////////////////////////////
 	#Health details
+
+	print(global_position)
 	
 	if invTime > 0:
 		invTime -= _delta
@@ -53,7 +57,7 @@ func _physics_process(_delta):
 		health = 10
 
 	if health <= 0:
-		queue_free()
+		get_tree().reload_current_scene()
 
 #//////////////////////////////////////////////////////////////////////////////
 	#Movement details
@@ -83,10 +87,12 @@ func _physics_process(_delta):
 #//////////////////////////////////////////////////////////////////////////////
 	#damage code
 
-func _damaged(dam, dir):
+func _damaged(dam, dir, kof, kou):
 	if invTime <= 0:
 		health -= dam
 		knockBack = dir
+		knockForce = kof
+		knockUp = kou
 		print(health)
 		playerDamaged.emit()
 

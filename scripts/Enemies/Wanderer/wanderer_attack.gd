@@ -5,6 +5,7 @@ var time = 1.0
 var target = null
 
 func _enter():
+	$"../../sounds/windup".play()
 	wanderer.speed = 0
 	time = 1.0
 	wanderer.velocity.x = wanderer.direction * wanderer.speed
@@ -32,3 +33,6 @@ func _dash():
 func _break():
 	wanderer.speed = 0
 	wanderer.velocity.x = 0
+
+func _sound():
+	$"../../sounds/swing".play()
