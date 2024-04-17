@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://j8rtus14n024"]
+[gd_scene load_steps=18 format=3 uid="uid://j8rtus14n024"]
 
 [ext_resource type="Texture2D" uid="uid://cvcl07t7e7ofl" path="res://Assets/alandra.png" id="1_p8dg5"]
 [ext_resource type="Script" path="res://scripts/alandra/alandra.gd" id="1_pwk0q"]
@@ -16,6 +16,9 @@ size = Vector2(61, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyweq"]
 size = Vector2(187.8, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoq3d"]
+size = Vector2(61, 50)
 
 [sub_resource type="Animation" id="Animation_jfhts"]
 length = 0.001
@@ -129,11 +132,19 @@ position = Vector2(-40.5, -9)
 shape = SubResource("RectangleShape2D_wyia0")
 
 [node name="event2" type="Area2D" parent="."]
+visible = false
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="event2"]
 position = Vector2(-101.5, -16)
 shape = SubResource("RectangleShape2D_tyweq")
+
+[node name="event3" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="event3"]
+position = Vector2(-40.5, -9)
+shape = SubResource("RectangleShape2D_hoq3d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -159,3 +170,4 @@ script = ExtResource("7_8rc5r")
 
 [connection signal="body_entered" from="event1" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="event2" to="." method="_on_event_2_body_entered"]
+[connection signal="body_entered" from="event3" to="." method="_on_event_3_body_entered"]

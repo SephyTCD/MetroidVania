@@ -3,6 +3,8 @@ class_name Howler
 
 var damage = 1
 var boxTime = 0
+var knockForce = 200
+var knockUp = -200
 
 @export var direction = 1
 
@@ -35,5 +37,5 @@ func _physics_process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("_damaged"):
-		body._damaged(damage, direction)
+		body._damaged(damage, direction, knockForce, knockUp)
 		boxTime = .01

@@ -20,7 +20,7 @@ func _update(_delta : float):
 
 	talkTime -= _delta
 	
-	if talkTime <= 0:
+	if talkTime <= 0 and alandra.event == 1:
 		state_transition.emit(self, "alandra_leaving")
 	
 func _exit():

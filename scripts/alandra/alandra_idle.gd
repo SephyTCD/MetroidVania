@@ -18,6 +18,9 @@ func _update(_delta : float):
 	if alandra.trigger == 1 and alandra.event == 1:
 		state_transition.emit(self, "alandra_talking")
 
+	if alandra.trigger == 1 and alandra.event == 3:
+		state_transition.emit(self, "alandra_talking")
+
 	if alandra.trigger == 1 and alandra.event == 2:
 		state_transition.emit(self, "alandra_shocked")
 

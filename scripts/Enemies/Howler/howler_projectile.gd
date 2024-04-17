@@ -6,6 +6,8 @@ var time = .60
 var damage = 1
 var direction = 1
 var soundAble = 0
+var knockForce = 200
+var knockUp = -200
 
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
@@ -31,4 +33,4 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("_damaged"):
-		body._damaged(damage, direction * -1)
+		body._damaged(damage, direction * -1, knockForce, knockUp)

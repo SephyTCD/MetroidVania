@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://ommh4ohp7uso" path="res://Assets/Bokan/paper_1.mp3" id="3_tarr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dofu0"]
-size = Vector2(20, 18)
 
 [sub_resource type="Animation" id="Animation_xqval"]
 length = 0.001

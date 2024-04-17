@@ -780,7 +780,7 @@ script = ExtResource("9_oqkcc")
 
 [node name="stomp" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("10_7ujdg")
-volume_db = -3.0
+volume_db = -5.0
 
 [node name="run" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("11_tfsou")
@@ -791,7 +791,7 @@ stream = ExtResource("12_sf672")
 
 [node name="projectile" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("13_aobds")
-volume_db = -2.0
+volume_db = -4.0
 
 [node name="roar" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("14_h2ukm")

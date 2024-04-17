@@ -29,9 +29,15 @@ func _physics_process(_delta):
 
 	if event == 1:
 		$event2/CollisionShape2D.set_deferred("disabled", true)
+		$event3/CollisionShape2D2.set_deferred("disabled", true)
 
 	if event == 2:
 		$event1/CollisionShape2D.set_deferred("disabled", true)
+		$event3/CollisionShape2D2.set_deferred("disabled", true)
+
+	if event == 3:
+		$event1/CollisionShape2D.set_deferred("disabled", true)
+		$event2/CollisionShape2D.set_deferred("disabled", true)
 
 	move_and_slide()
 
@@ -40,5 +46,10 @@ func _on_area_2d_body_entered(body):
 		trigger = 1
 
 func _on_event_2_body_entered(body):
+	if body == target:
+		trigger = 1
+
+
+func _on_event_3_body_entered(body):
 	if body == target:
 		trigger = 1

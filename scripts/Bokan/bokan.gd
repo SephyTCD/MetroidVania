@@ -40,7 +40,7 @@ func _physics_process(_delta):
 #//////////////////////////////////////////////////////////////////////////////
 	#Health details
 
-	print(global_position)
+	$Camera2D/RichTextLabel.set_text("Health\n"+str(health)+"/"+str(maxHealth))
 	
 	if invTime > 0:
 		invTime -= _delta

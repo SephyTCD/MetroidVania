@@ -5,6 +5,8 @@ var direction = -1
 var speed = 375.0
 var time = .8
 var damage = 1
+var knockForce = 200
+var knockUp = -200
 
 func _physics_process(delta):
 	if (Globals.checkForCutsceneFreeze()): # freeze if in cutscene
@@ -19,5 +21,5 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("_damaged"):
-		body._damaged(damage, direction)
+		body._damaged(damage, direction, knockForce, knockUp)
 	queue_free()

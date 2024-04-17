@@ -234,11 +234,11 @@ script = ExtResource("6_73cjy")
 
 [node name="swing" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("7_tvmam")
-volume_db = -4.0
+volume_db = -7.0
 
 [node name="windup" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("8_4myvg")
-volume_db = -4.0
+volume_db = -7.0
 
 [connection signal="body_entered" from="body_hitbox" to="." method="_on_body_hitbox_body_entered"]
 [connection signal="body_entered" from="swing_hitbox" to="." method="_on_swing_hitbox_body_entered"]

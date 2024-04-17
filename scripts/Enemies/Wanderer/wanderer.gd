@@ -7,6 +7,9 @@ var direction = 1
 var damage = 2
 var boxTime = 0
 var blinkTime = 0
+var knockForce = 200
+var knockUp = -200
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -56,12 +59,12 @@ func _physics_process(_delta):
 
 func _on_body_hitbox_body_entered(body):
 	if body.has_method("_damaged"):
-		body._damaged(damage, direction)
+		body._damaged(damage, direction, knockForce, knockUp)
 		boxTime = .01
 
 func _on_swing_hitbox_body_entered(body):
 	if body.has_method("_damaged"):
-		body._damaged(damage, direction)
+		body._damaged(damage, direction, knockForce, knockUp)
 
 func _damaged(dam):
 	health -= dam
