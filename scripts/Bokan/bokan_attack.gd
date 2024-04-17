@@ -28,6 +28,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("shoot") and player.shootLock == 0:
 		player.animLock = 1
 		
+		$"../sounds/paper".play()
+		
 		if player.is_on_floor() == false:
 			if animSwap == 1:
 				animSwap = 2

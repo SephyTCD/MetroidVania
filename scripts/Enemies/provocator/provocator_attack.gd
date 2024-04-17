@@ -43,3 +43,7 @@ func _shoot():
 
 func _end():
 	state_transition.emit(self, "provocator_idle")
+
+func _sound():
+	$"../../sounds/windup1".play()
+	$"../../sounds/windup2".play()

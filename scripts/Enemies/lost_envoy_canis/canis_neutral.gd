@@ -117,3 +117,6 @@ func _update(_delta : float):
 
 func _exit():
 	pass
+
+func _sound():
+	$"../../sounds/stomp".play()

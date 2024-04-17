@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://55qio502f46k"]
+[gd_scene load_steps=36 format=3 uid="uid://55qio502f46k"]
 
 [ext_resource type="Script" path="res://scripts/Bokan/bokan.gd" id="1_6hup2"]
 [ext_resource type="Texture2D" uid="uid://calioikk4wwod" path="res://Assets/Bokan/bokan2b.png" id="2_y8vaq"]
@@ -12,6 +12,13 @@
 [ext_resource type="Script" path="res://scripts/Bokan/bokan_wall_jump.gd" id="10_f0oap"]
 [ext_resource type="Script" path="res://scripts/Bokan/bokan_attack.gd" id="10_rvwq4"]
 [ext_resource type="Script" path="res://scripts/Bokan/bokan_damage.gd" id="11_e5hfk"]
+[ext_resource type="AudioStream" uid="uid://ommh4ohp7uso" path="res://Assets/Bokan/paper_1.mp3" id="13_3h08o"]
+[ext_resource type="AudioStream" uid="uid://bh42w6s3pr1x2" path="res://Assets/sounds/effects/damage.wav" id="14_5d0lh"]
+[ext_resource type="AudioStream" uid="uid://5i3c2qea1o2f" path="res://Assets/Bokan/walljump2.wav" id="16_bfsb6"]
+[ext_resource type="AudioStream" uid="uid://c0jp1nqyxg4e0" path="res://Assets/Bokan/walljump4.wav" id="16_e0m8f"]
+[ext_resource type="AudioStream" uid="uid://b842g35dujblx" path="res://Assets/Bokan/wallrun.wav" id="17_w5tso"]
+[ext_resource type="AudioStream" uid="uid://dybilu8vx6s8n" path="res://Assets/Bokan/jump (1).wav" id="18_vk0qq"]
+[ext_resource type="AudioStream" uid="uid://bwjoqramaqy34" path="res://Assets/Bokan/land.wav" id="19_6n6cg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76rb4"]
 size = Vector2(13, 28)
@@ -282,6 +289,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 1), Vector2i(1, 1)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BokanStatemachine/bokan_wall_run")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_5wi6t"]
 resource_name = "wall_slide"
@@ -419,6 +440,33 @@ script = ExtResource("11_e5hfk")
 script = ExtResource("10_rvwq4")
 player = NodePath("..")
 stateMachine = NodePath("../BokanStatemachine")
+
+[node name="sounds" type="Node" parent="."]
+
+[node name="paper" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("13_3h08o")
+
+[node name="damage" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("14_5d0lh")
+volume_db = -2.811
+
+[node name="wall_kick" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("16_bfsb6")
+volume_db = -5.0
+
+[node name="wall_jump" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("16_e0m8f")
+volume_db = 1.0
+
+[node name="wall_run" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("17_w5tso")
+
+[node name="jump" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("18_vk0qq")
+volume_db = -2.0
+
+[node name="land" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("19_6n6cg")
 
 [connection signal="body_entered" from="wall_detect" to="." method="_on_wall_detect_body_entered"]
 [connection signal="body_exited" from="wall_detect" to="." method="_on_wall_detect_body_exited"]

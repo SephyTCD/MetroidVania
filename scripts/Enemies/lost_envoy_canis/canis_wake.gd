@@ -58,3 +58,6 @@ func _sparks_end():
 
 func _freeze():
 	Globals.inCutscene = true
+
+func _roar():
+	$"../../sounds/roar".play()

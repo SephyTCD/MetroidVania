@@ -31,6 +31,7 @@ func _update(_delta : float):
 		#player.runLock = 1
 
 	if Input.is_action_just_pressed("jump"):
+		$"../../sounds/wall_kick".play()
 		state_transition.emit(self, "bokan_jump")
 		#player.runLock = 1
 
@@ -41,3 +42,6 @@ func _update(_delta : float):
 func _exit():
 	player.runLock = 1
 	player.gravity = 1800
+
+func _sound():
+	$"../../sounds/wall_run".play()
