@@ -115,6 +115,9 @@ func _update(_delta : float):
 		if secondaryTime <= 0:
 			state_transition.emit(self, "canis_jump")
 
+	if canis.health <= 0:
+		state_transition.emit(self, "canis_death")
+
 func _exit():
 	pass
 

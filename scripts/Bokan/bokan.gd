@@ -54,10 +54,12 @@ func _physics_process(_delta):
 		playerDamaged.emit()
 	
 	if health > maxHealth:
-		health = 10
+		health = maxHealth
 
 	if health <= 0:
-		get_tree().reload_current_scene()
+		health <= 0
+		$wall_detect/CollisionShape2D.set_deferred("disabled", true)
+		$CollisionShape2D.set_deferred("disabled", true)
 
 #//////////////////////////////////////////////////////////////////////////////
 	#Movement details
@@ -98,6 +100,9 @@ func _damaged(dam, dir, kof, kou):
 
 func _heal(heal):
 	health += heal
+
+func _maxup():
+	maxHealth += 2
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	#wallrun

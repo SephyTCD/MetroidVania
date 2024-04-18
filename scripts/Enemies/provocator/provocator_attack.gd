@@ -22,7 +22,7 @@ func _update(_delta : float):
 		provocator.sprite.flip_h = true
 
 func _exit():
-	provocator.transTime = .8
+	provocator.transTime = 1.6
 	
 
 func _shoot():

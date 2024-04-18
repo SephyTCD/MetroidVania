@@ -39,6 +39,9 @@ func _update(_delta : float):
 		#state_transition.emit(self, "bokan_damage")
 		#player.runLock = 1
 
+	if player.health <= 0:
+		state_transition.emit(self, "bokan_death")
+
 func _exit():
 	player.runLock = 1
 	player.gravity = 1800

@@ -10,9 +10,17 @@ var blinkTime = 0
 var knockForce = 200
 var knockUp = -200
 
+var damageAble = 0
 var health = 60
+var maxHealth = 60
+var healthShow = 0
+var dying = 0
+
+var target = null
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+var explosion = preload("res://scenes/misc/boss_explosion.tscn")
 
 @onready var marker = $Marker2D
 
@@ -21,6 +29,20 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(_delta):
 	
+	target = get_tree().get_first_node_in_group("Player")
+	
+	$RichTextLabel.set_text("Health\n"+str(health)+"/"+str(maxHealth))
+	
+	$RichTextLabel.global_position = target.global_position + Vector2(170, 70)
+	
+	if healthShow == 0:
+		$RichTextLabel.modulate.a = 0
+	if healthShow == 1:
+		$RichTextLabel.modulate.a = 1
+	
+	if health < 0:
+		health = 0
+	
 	if blinkTime > 0:
 		blinkTime -= _delta
 		modulate.a = 0.5
@@ -28,6 +50,12 @@ func _physics_process(_delta):
 		modulate.a = 1
 	
 	if health <= 0:
+		modulate.a = 0.5
+
+	if dying == 1:
+		var inst = explosion.instantiate()
+		get_tree().current_scene.add_child(inst)
+		inst.global_position = global_position
 		queue_free()
 
 	velocity.y += gravity * _delta
@@ -47,8 +75,9 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _damaged(dam):
-	health -= dam
-	blinkTime = .1
+	if damageAble == 1:
+		health -= dam
+		blinkTime = .1
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("_damaged"):

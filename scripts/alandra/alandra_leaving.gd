@@ -1,10 +1,10 @@
 extends AlandraState
 class_name alandra_leaving
 
-var leaveTime = .50
+var leaveTime = 1
 
 func _enter():
-	leaveTime = .50
+	leaveTime = 1
 	alandra.direction = 1
 	alandra.jumpSpeed = alandra.jumpForce
 	alandra.velocity.y = alandra.jumpSpeed

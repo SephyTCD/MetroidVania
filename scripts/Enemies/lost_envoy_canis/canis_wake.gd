@@ -46,6 +46,8 @@ func _update(_delta : float):
 
 func _exit():
 	Globals.inCutscene = false
+	canis.damageAble = 1
+	canis.healthShow = 1
 
 func _end():
 	state_transition.emit(self, "canis_neutral")

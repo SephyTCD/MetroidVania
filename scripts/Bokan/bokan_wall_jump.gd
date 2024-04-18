@@ -29,6 +29,9 @@ func _update(_delta : float):
 	#elif player.damaged == 1:
 		#state_transition.emit(self, "bokan_damage")
 
+	if player.health <= 0:
+		state_transition.emit(self, "bokan_death")
+
 func _exit():
 	pass
 

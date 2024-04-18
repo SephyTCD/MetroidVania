@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://j8rtus14n024"]
+[gd_scene load_steps=19 format=3 uid="uid://j8rtus14n024"]
 
 [ext_resource type="Texture2D" uid="uid://cvcl07t7e7ofl" path="res://Assets/alandra.png" id="1_p8dg5"]
 [ext_resource type="Script" path="res://scripts/alandra/alandra.gd" id="1_pwk0q"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/alandra/alandra_talking.gd" id="5_rw6xo"]
 [ext_resource type="Script" path="res://scripts/alandra/alandra_leaving.gd" id="6_gv4gl"]
 [ext_resource type="Script" path="res://scripts/alandra/alandra_shocked.gd" id="7_8rc5r"]
+[ext_resource type="Script" path="res://scripts/alandra/alandra_demoend.gd" id="8_g0t07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nv26b"]
 size = Vector2(18, 44)
@@ -167,6 +168,9 @@ script = ExtResource("6_gv4gl")
 
 [node name="alandra_shocked" type="Node" parent="alandraStatemachine"]
 script = ExtResource("7_8rc5r")
+
+[node name="alandra_demoend" type="Node" parent="alandraStatemachine"]
+script = ExtResource("8_g0t07")
 
 [connection signal="body_entered" from="event1" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="event2" to="." method="_on_event_2_body_entered"]

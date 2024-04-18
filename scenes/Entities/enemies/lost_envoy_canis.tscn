@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://byc2x42xb0dxa"]
+[gd_scene load_steps=29 format=3 uid="uid://byc2x42xb0dxa"]
 
 [ext_resource type="Texture2D" uid="uid://b7l67roaya572" path="res://Assets/enemies/lost_envoy_canis/lost_envoy_canis.png" id="1_e87ix"]
 [ext_resource type="Script" path="res://scripts/Enemies/lost_envoy_canis/lost_envoy_canis.gd" id="1_goxt2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/Enemies/lost_envoy_canis/canis_airshoot.gd" id="8_xvwke"]
 [ext_resource type="Script" path="res://scripts/Enemies/lost_envoy_canis/canis_wake.gd" id="9_oqkcc"]
 [ext_resource type="AudioStream" uid="uid://dgpbi0txp4s15" path="res://Assets/enemies/lost_envoy_canis/stomp.wav" id="10_7ujdg"]
+[ext_resource type="Script" path="res://scenes/Entities/enemies/canis_death.gd" id="10_r8qri"]
 [ext_resource type="AudioStream" uid="uid://d0n4tvvsoplqg" path="res://Assets/enemies/lost_envoy_canis/run.wav" id="11_tfsou"]
 [ext_resource type="AudioStream" uid="uid://c43qyegvgfgxq" path="res://Assets/enemies/lost_envoy_canis/jump.wav" id="12_sf672"]
 [ext_resource type="AudioStream" uid="uid://jju1jxykgujs" path="res://Assets/enemies/lost_envoy_canis/projectile3.mp3" id="13_aobds"]
@@ -551,6 +552,21 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_r6fym"]
+resource_name = "canis_still"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_itdca"]
 resource_name = "canis_wake"
 length = 4.8
@@ -718,6 +734,7 @@ _data = {
 "canis_shot": SubResource("Animation_sl45o"),
 "canis_sleep": SubResource("Animation_e1uut"),
 "canis_squat": SubResource("Animation_q0oq0"),
+"canis_still": SubResource("Animation_r6fym"),
 "canis_wake": SubResource("Animation_itdca"),
 "canis_walk": SubResource("Animation_wuprd")
 }
@@ -732,12 +749,10 @@ hframes = 3
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-11.5, 12)
 shape = SubResource("RectangleShape2D_q5sjt")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 3
 
@@ -747,6 +762,10 @@ polygon = PackedVector2Array(-36, 17, -36, 42, 42, 42, 42, -10, -35, -10, -35, -
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-90, 14)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 115.0
+offset_bottom = 58.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -776,6 +795,9 @@ script = ExtResource("8_xvwke")
 [node name="canis_wake" type="Node" parent="CanisStatemachine"]
 script = ExtResource("9_oqkcc")
 
+[node name="canis_death" type="Node" parent="CanisStatemachine"]
+script = ExtResource("10_r8qri")
+
 [node name="sounds" type="Node" parent="."]
 
 [node name="stomp" type="AudioStreamPlayer" parent="sounds"]
@@ -791,7 +813,7 @@ stream = ExtResource("12_sf672")
 
 [node name="projectile" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("13_aobds")
-volume_db = -4.0
+volume_db = -8.0
 
 [node name="roar" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("14_h2ukm")

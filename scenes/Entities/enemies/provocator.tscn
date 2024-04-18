@@ -132,9 +132,10 @@ marker = NodePath("../../Marker2D")
 
 [node name="windup1" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("6_2hnnj")
+volume_db = -5.0
 
 [node name="windup2" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("7_dckb4")
-volume_db = -5.0
+volume_db = -7.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

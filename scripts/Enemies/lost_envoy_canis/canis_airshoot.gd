@@ -42,7 +42,7 @@ func _update(_delta : float):
 
 		if limit == 0:
 			var inst = bullet.instantiate()
-			get_tree().current_scene.add_child(inst)
+			get_parent().add_child(inst)
 			inst.global_position = canis.marker.global_position
 			if canis.marker.position.x > 0:
 				inst.speed *= 1
@@ -53,6 +53,9 @@ func _update(_delta : float):
 	if airTime <= 0:
 		canis.gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 		state_transition.emit(self, "canis_neutral")
+
+	if canis.health <= 0:
+		state_transition.emit(self, "canis_death")
 
 func _exit():
 	pass

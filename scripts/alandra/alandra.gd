@@ -6,6 +6,7 @@ var jumpSpeed = -500
 var trigger = 0
 var target = null
 var despawn = 0
+var endText = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 1000
@@ -13,13 +14,13 @@ var gravity = 1000
 @export var jumpForce = -500
 @export var direction = 1
 @export var event = 1
+@export var dialogue = 1
 
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 
 func _physics_process(_delta):
 	target = get_tree().get_first_node_in_group("Player")
-	
 
 	velocity.y += gravity * _delta
 

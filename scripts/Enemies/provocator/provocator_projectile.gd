@@ -3,7 +3,7 @@ class_name provocator_projectile
 
 var direction = -1
 var speed = 375.0
-var time = .8
+var time = .6
 var damage = 1
 var knockForce = 200
 var knockUp = -200

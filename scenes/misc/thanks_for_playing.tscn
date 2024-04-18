@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3vs56xof3q48"]
+
+[ext_resource type="Script" path="res://scripts/misc/thanks_for_playing.gd" id="1_d5aa8"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+offset_right = 243.0
+offset_bottom = 110.0
+theme_override_font_sizes/normal_font_size = 22
+text = "Thank you for playing!"
+script = ExtResource("1_d5aa8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 246.0
+offset_bottom = 112.0
+theme_override_font_sizes/normal_font_size = 13
+text = "
+
+  
+	press jump or attack to play again!"

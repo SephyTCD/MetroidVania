@@ -24,6 +24,8 @@ func _update(_delta : float):
 	if time <= 0 or canis.is_on_wall() == true:
 		state_transition.emit(self, "canis_neutral")
 
+	if canis.health <= 0:
+		state_transition.emit(self, "canis_death")
 
 func _exit():
 	pass

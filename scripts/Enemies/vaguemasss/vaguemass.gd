@@ -6,7 +6,7 @@ var speed = 180
 var direction = 1
 var damage = 0
 var boxTime = 0
-var knockBack = 500
+var knockBack = 1000
 var knockForce = -500
 
 @onready var animations : AnimationPlayer = $AnimationPlayer

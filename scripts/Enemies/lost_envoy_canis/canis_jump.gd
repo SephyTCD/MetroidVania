@@ -41,6 +41,9 @@ func _update(_delta : float):
 	if canis.is_on_floor() == true and endAble == 1:
 		state_transition.emit(self, "canis_neutral")
 
+	if canis.health <= 0:
+		state_transition.emit(self, "canis_death")
+
 func _exit():
 	pass
 

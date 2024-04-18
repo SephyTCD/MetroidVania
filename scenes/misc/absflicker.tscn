@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://cedj0wfiqiub8"]
+
+[ext_resource type="Script" path="res://scripts/misc/absflicker.gd" id="1_fqkbx"]
+[ext_resource type="Texture2D" uid="uid://bcnir1hmf31rt" path="res://Assets/misc/absflicker.png" id="1_lupn3"]
+
+[sub_resource type="Animation" id="Animation_m3pmv"]
+resource_name = "flicker"
+length = 3.0
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.08, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.42),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(4, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.98),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4m51s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(4, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4u2q4"]
+_data = {
+"RESET": SubResource("Animation_4m51s"),
+"flicker": SubResource("Animation_m3pmv")
+}
+
+[node name="absflicker" type="CharacterBody2D"]
+script = ExtResource("1_fqkbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lupn3")
+hframes = 5
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4u2q4")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -41.0
+offset_top = -42.0
+offset_right = 49.0
+offset_bottom = 14.0
+theme_override_font_sizes/normal_font_size = 9
+text = "  abstraction found
+	max health up"

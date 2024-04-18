@@ -32,6 +32,9 @@ func _update(_delta : float):
 	if time <= 0:
 		state_transition.emit(self, "bokan_idle")
 
+	if player.health <= 0:
+		state_transition.emit(self, "bokan_death")
+
 func _exit():
 	player.knockForce = 200
 	player.knockUp = -200
