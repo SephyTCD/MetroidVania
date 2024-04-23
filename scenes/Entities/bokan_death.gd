@@ -20,6 +20,7 @@ func _update(_delta : float):
 	time -= _delta
 
 	if time <= 0:
+		Globals.health = 20
 		get_tree().reload_current_scene()
 
 func _exit():

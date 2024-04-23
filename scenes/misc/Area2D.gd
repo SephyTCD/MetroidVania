@@ -13,4 +13,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body == target:
+		CheckPoint.lastPose = null
 		get_tree().change_scene_to_file("res://scenes/Maps/intro_level2.tscn")

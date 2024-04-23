@@ -41,7 +41,7 @@ func _physics_process(_delta):
 #//////////////////////////////////////////////////////////////////////////////
 	#Health details
 
-	$Camera2D/RichTextLabel.set_text("Health\n"+str(health)+"/"+str(maxHealth))
+	$Camera2D/RichTextLabel.set_text("Health\n"+str(Globals.health)+"/"+str(Globals.maxHealth))
 	
 	if invTime > 0:
 		invTime -= _delta
@@ -50,15 +50,15 @@ func _physics_process(_delta):
 		modulate.a = 1
 	
 	if onHazard == 1 and invTime <= 0:
-		health -= 3
+		Globals.health -= 3
 		knockBack = facing * -1
 		playerDamaged.emit()
 	
-	if health > maxHealth:
-		health = maxHealth
+	if Globals.health > Globals.maxHealth:
+		Globals.health = Globals.maxHealth
 
-	if health <= 0:
-		health <= 0
+	if Globals.health <= 0:
+		Globals.health <= 0
 		$wall_detect/CollisionShape2D.set_deferred("disabled", true)
 		$CollisionShape2D.set_deferred("disabled", true)
 
@@ -93,7 +93,7 @@ func _physics_process(_delta):
 
 func _damaged(dam, dir, kof, kou):
 	if invTime <= 0:
-		health -= dam
+		Globals.health -= dam
 		knockBack = dir
 		knockForce = kof
 		knockUp = kou
@@ -101,10 +101,11 @@ func _damaged(dam, dir, kof, kou):
 		playerDamaged.emit()
 
 func _heal(heal):
-	health += heal
+	Globals.health += heal
 
 func _maxup():
-	maxHealth += 2
+	Globals.maxHealth += 2
+	Globals.health = 20
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	#wallrun

@@ -7,6 +7,7 @@
 
 [node name="lock_matrix" type="CharacterBody2D"]
 script = ExtResource("1_15obg")
+gateResourcePath = "res://scenes/Maps/resources/gate_resource.tres"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_121mf")

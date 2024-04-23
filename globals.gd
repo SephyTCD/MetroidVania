@@ -1,5 +1,8 @@
 extends Node
 
+var health = 10
+var maxHealth = 10
+
 var inCutscene = false # If true, everything freezes except for relevant cutscene stuff
 
 # Called when the node enters the scene tree for the first time.

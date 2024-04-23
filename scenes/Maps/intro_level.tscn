@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dtvjdwkctidin"]
+[gd_scene load_steps=41 format=3 uid="uid://dtvjdwkctidin"]
 
 [ext_resource type="Texture2D" uid="uid://bmqbiof2dpayc" path="res://Assets/Terrain/Area1/area1_terrain.png" id="1_77ueb"]
 [ext_resource type="Script" path="res://scripts/misc/intro_level.gd" id="1_fk8f8"]
@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://csf52kmpuvjo4" path="res://scenes/misc/wall_tutorial.tscn" id="20_nmrwf"]
 [ext_resource type="PackedScene" uid="uid://crsg6d38n7v6o" path="res://scenes/misc/auto_check_point.tscn" id="22_vv00y"]
 [ext_resource type="PackedScene" uid="uid://dlp5sut336tkh" path="res://scenes/misc/gate_core.tscn" id="23_883b3"]
+[ext_resource type="PackedScene" uid="uid://de7c6av8t18dx" path="res://scenes/misc/breakblock.tscn" id="24_dofl4"]
+[ext_resource type="PackedScene" uid="uid://doflspwdmcmrj" path="res://scenes/misc/lock_matrix.tscn" id="25_7ijgr"]
+[ext_resource type="PackedScene" uid="uid://bnrhfy1qp5mrp" path="res://scenes/misc/abstaction.tscn" id="26_57hgd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bc1e4"]
 texture = ExtResource("1_r6h1r")
@@ -495,7 +498,7 @@ layer_0/tile_data = PackedInt32Array(-458700, 65537, 1, -393164, 65537, 1, -3931
 script = ExtResource("4_oi3gf")
 
 [node name="bokan" parent="." instance=ExtResource("3_73bgj")]
-position = Vector2(-3896, 600)
+position = Vector2(-3878, 599)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -634,6 +637,23 @@ position = Vector2(-156, 3)
 
 [node name="gate_core" parent="misc" instance=ExtResource("23_883b3")]
 position = Vector2(-3460.05, 1030.04)
+
+[node name="breakblock" parent="misc" instance=ExtResource("24_dofl4")]
+position = Vector2(-3376.45, 1036.22)
+
+[node name="breakblock2" parent="misc" instance=ExtResource("24_dofl4")]
+position = Vector2(-3180.59, 1062.41)
+gateResourcePath = "res://scenes/Maps/resources/gate_resource2.tres"
+
+[node name="lock_matrix" parent="misc" instance=ExtResource("25_7ijgr")]
+position = Vector2(-3102, 1094)
+
+[node name="abstaction" parent="misc" instance=ExtResource("26_57hgd")]
+position = Vector2(-3285.93, 1160.29)
+
+[node name="abstaction2" parent="misc" instance=ExtResource("26_57hgd")]
+position = Vector2(-3240.87, 1163.06)
+gateResourcePath = "res://scenes/Maps/resources/gate_resource2.tres"
 
 [connection signal="body_entered" from="bridge/Area2D" to="bridge" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="bridgesound/Area2D" to="bridgesound" method="_on_area_2d_body_entered"]

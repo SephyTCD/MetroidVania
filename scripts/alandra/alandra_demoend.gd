@@ -16,6 +16,8 @@ func _update(_delta : float):
 	
 	if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("shoot"):
 		Globals.inCutscene = false
+		Globals.maxHealth = 10
+		CheckPoint.lastPose = null
 		get_tree().change_scene_to_file("res://scenes/misc/introcutscene.tscn")
 
 func _exit():

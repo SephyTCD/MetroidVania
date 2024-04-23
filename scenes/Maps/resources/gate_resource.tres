@@ -6,3 +6,4 @@
 resource_local_to_scene = true
 script = ExtResource("1_0bgpm")
 exist = true
+exist2 = true

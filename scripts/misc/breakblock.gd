@@ -1,6 +1,7 @@
 extends CharacterBody2D
+class_name break_block
 
-var health = 1
+var target = null
 
 var gateResource : Resource
 @export var gateResourcePath = ""
@@ -8,16 +9,17 @@ var gateResource : Resource
 func _ready():
 	gateResource = PersistResource._load(gateResourcePath)
 	if get_tree().current_scene.name == "Node2D2":
-		gateResource.exist = true
+		gateResource.exist2 = true
 	gateResource = PersistResource._load(gateResourcePath)
-	if gateResource.exist == false:
+	if gateResource.exist2 == false:
 		queue_free()
 
 func _physics_process(delta):
-	
-	if health <= 0:
-		gateResource.exist = false
-		queue_free()
 
-func _damaged(dam):
-	health -= dam
+	target = get_tree().get_first_node_in_group("Player")
+
+
+func _on_area_2d_body_entered(body):
+	if body == target:
+		gateResource.exist2 = false
+		queue_free()

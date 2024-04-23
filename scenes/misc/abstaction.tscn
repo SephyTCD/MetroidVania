@@ -8,6 +8,7 @@ size = Vector2(20, 18)
 
 [node name="abstaction" type="CharacterBody2D"]
 script = ExtResource("1_xcds5")
+gateResourcePath = "res://scenes/Maps/resources/gate_resource.tres"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_oj8ih")

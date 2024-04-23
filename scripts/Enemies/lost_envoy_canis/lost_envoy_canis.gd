@@ -31,9 +31,9 @@ func _physics_process(_delta):
 	
 	target = get_tree().get_first_node_in_group("Player")
 	
-	$RichTextLabel.set_text("Health\n"+str(health)+"/"+str(maxHealth))
+	$RichTextLabel.set_text("Lost Envoy Canis\n          "+str(health)+"/"+str(maxHealth))
 	
-	$RichTextLabel.global_position = target.global_position + Vector2(170, 70)
+	$RichTextLabel.global_position = target.global_position + Vector2(90, 70)
 	
 	if healthShow == 0:
 		$RichTextLabel.modulate.a = 0
@@ -79,7 +79,7 @@ func _physics_process(_delta):
 func _damaged(dam):
 	if damageAble == 1:
 		health -= dam
-		blinkTime = .1
+		blinkTime = .2
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("_damaged"):
