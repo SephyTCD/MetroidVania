@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bwj5riu65jj0e" path="res://Assets/enemies/lost_envoy_canis/roar.wav" id="14_h2ukm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sjt"]
-size = Vector2(137, 60)
+size = Vector2(137, 52)
 
 [sub_resource type="Animation" id="Animation_lymlk"]
 length = 0.001
@@ -104,6 +104,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:shape:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(137, 52)]
 }
 
 [sub_resource type="Animation" id="Animation_3doj4"]
@@ -353,7 +365,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-44, 21, -44, 34, 53, 34, 53, -18, -36, -18, -36, -7, -74, -7, -74, 21)]
+"values": [PackedVector2Array(-44, 21, -44, 34, 53, 34, 53, -12, -36, -12, -36, -7, -74, -7, -74, 21)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -392,6 +404,18 @@ tracks/4/keys = {
 "args": [],
 "method": &"_sound"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(137, 52)]
 }
 
 [sub_resource type="Animation" id="Animation_sl45o"]
@@ -749,7 +773,7 @@ hframes = 3
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11.5, 12)
+position = Vector2(-11.5, 16)
 shape = SubResource("RectangleShape2D_q5sjt")
 
 [node name="Area2D" type="Area2D" parent="."]

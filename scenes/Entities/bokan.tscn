@@ -414,6 +414,22 @@ collision_mask = 16
 position = Vector2(-0.5, 8.25)
 shape = SubResource("RectangleShape2D_wijv0")
 
+[node name="on_wall_right" type="RayCast2D" parent="."]
+position = Vector2(0, -10.34)
+target_position = Vector2(7, 0)
+
+[node name="on_wall_left" type="RayCast2D" parent="."]
+position = Vector2(-1.105, -10.36)
+target_position = Vector2(-7, 0)
+
+[node name="on_wall_right_low" type="RayCast2D" parent="."]
+position = Vector2(0.04, 16.355)
+target_position = Vector2(7, 0)
+
+[node name="on_wall_left_low" type="RayCast2D" parent="."]
+position = Vector2(-1.035, 16.33)
+target_position = Vector2(-7, 0)
+
 [node name="BokanStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "player")]
 script = ExtResource("3_m2t1x")
 initial_state = NodePath("bokan_idle")

@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://csf52kmpuvjo4"]
+
+[ext_resource type="Texture2D" uid="uid://caxdkomdb38h2" path="res://Assets/misc/tutWallJump.png" id="1_h5dar"]
+[ext_resource type="Script" path="res://scripts/misc/wall_tutorial.gd" id="1_ydl3x"]
+[ext_resource type="Script" path="res://scripts/misc/tutorialStatemachine.gd" id="3_xjwkp"]
+[ext_resource type="Script" path="res://scripts/misc/tutorial_hidden.gd" id="4_8a2jh"]
+[ext_resource type="Script" path="res://scripts/misc/tutorial_show.gd" id="5_2xbek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d0n4"]
+size = Vector2(114, 80)
+
+[sub_resource type="Animation" id="Animation_sac4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_k5pl7"]
+resource_name = "controls"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_b5nbk"]
+resource_name = "wall_jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_syhob"]
+resource_name = "wall_run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nm6s2"]
+_data = {
+"RESET": SubResource("Animation_sac4h"),
+"controls": SubResource("Animation_k5pl7"),
+"wall_jump": SubResource("Animation_b5nbk"),
+"wall_run": SubResource("Animation_syhob")
+}
+
+[node name="wallTutorial" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_ydl3x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.09999, -34.5)
+scale = Vector2(1.8625, 1.8625)
+texture = ExtResource("1_h5dar")
+hframes = 3
+frame = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1d0n4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nm6s2")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -106.0
+offset_top = -108.0
+offset_right = 102.0
+offset_bottom = 39.0
+theme_override_font_sizes/normal_font_size = 9
+text = "test"
+
+[node name="tutorialStatemachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "tutorial")]
+script = ExtResource("3_xjwkp")
+initial_state = NodePath("tutorial_hidden")
+tutorial = NodePath("..")
+
+[node name="tutorial_hidden" type="Node" parent="tutorialStatemachine"]
+script = ExtResource("4_8a2jh")
+
+[node name="tutorial_show" type="Node" parent="tutorialStatemachine"]
+script = ExtResource("5_2xbek")
+
+[connection signal="body_entered" from="Area2D" to="tutorialStatemachine/tutorial_hidden" method="_on_area_2d_body_entered"]

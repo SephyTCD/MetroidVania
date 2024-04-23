@@ -6,6 +6,7 @@ var boxTime = 0
 var knockForce = 200
 var knockUp = -200
 
+@export var projTime = .60
 @export var direction = 1
 
 @onready var animations : AnimationPlayer = $AnimationPlayer

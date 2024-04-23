@@ -37,9 +37,11 @@ func _update(_delta : float):
 		if howler.direction == -1:
 			inst.speed *= -1
 			inst.direction = 1
+			inst.time = howler.projTime
 		if howler.direction == 1:
 			inst.speed *= 1
 			inst.direction = -1
+			inst.time = howler.projTime
 		time = 0.35
 		limit += 1
 

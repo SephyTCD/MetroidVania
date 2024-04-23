@@ -44,9 +44,11 @@ func _physics_process(_delta):
 		health = 0
 	
 	if blinkTime > 0:
+		damageAble = 0
 		blinkTime -= _delta
 		modulate.a = 0.5
 	else:
+		damageAble = 1
 		modulate.a = 1
 	
 	if health <= 0:

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b576u5x45elnq"]
+
+[ext_resource type="Script" path="res://scenes/Maps/resources/gateResource.gd" id="1_0bgpm"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_0bgpm")
+exist = true

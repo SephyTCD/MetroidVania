@@ -26,7 +26,7 @@ func _update(_delta : float):
 	Input.is_action_pressed("ui_left") == false and Input.is_action_pressed("ui_right") == false:
 		state_transition.emit(self, "bokan_idle")
 
-	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
+	elif Input.is_action_just_pressed("jump") and player.is_on_floor() or player.is_on_floor() and player.jumpBuff >0:
 		$"../../sounds/jump".play()
 		state_transition.emit(self, "bokan_jump")
 

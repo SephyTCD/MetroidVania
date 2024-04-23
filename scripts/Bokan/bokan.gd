@@ -12,6 +12,7 @@ var direction = 0
 var facing = 1
 
 var wallRunAble = 0
+var jumpBuff = 0
 
 var health = 10
 var maxHealth = 10
@@ -66,10 +67,11 @@ func _physics_process(_delta):
 
 	velocity.y += gravity * _delta
 
+	if jumpBuff > 0:
+		jumpBuff -= _delta
+
 	if moveLock > 0:
 		moveLock -= _delta
-
-	
 
 	if moveLock <= 0:
 		direction = Input.get_axis("ui_left", "ui_right")

@@ -19,6 +19,7 @@ var gravity = 1000
 @onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 
+
 func _physics_process(_delta):
 	target = get_tree().get_first_node_in_group("Player")
 

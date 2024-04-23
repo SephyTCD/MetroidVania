@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://crsg6d38n7v6o"]
+
+[ext_resource type="Script" path="res://scenes/misc/auto_check_point.gd" id="1_xsk67"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdtdb"]
+size = Vector2(20, 428)
+
+[node name="auto_check_point" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_xsk67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -204)
+shape = SubResource("RectangleShape2D_jdtdb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

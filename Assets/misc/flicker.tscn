@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://dltuuoujr0tpf"]
+
+[ext_resource type="Script" path="res://Assets/misc/flicker.gd" id="1_504jb"]
+[ext_resource type="Texture2D" uid="uid://bcnir1hmf31rt" path="res://Assets/misc/absflicker.png" id="2_cfwhh"]
+
+[sub_resource type="Animation" id="Animation_bmfty"]
+resource_name = "flicker"
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.08, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.42),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_srhp7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lf71i"]
+_data = {
+"RESET": SubResource("Animation_srhp7"),
+"flicker": SubResource("Animation_bmfty")
+}
+
+[node name="flicker" type="CharacterBody2D"]
+script = ExtResource("1_504jb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cfwhh")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lf71i")
+}

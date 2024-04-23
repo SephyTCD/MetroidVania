@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xsh"]
 size = Vector2(24, 25)
 
-[node name="gate_core" type="CharacterBody2D"]
+[node name="gate_core" type="CharacterBody2D" groups=["Persist"]]
 script = ExtResource("1_b6or1")
+gateResourcePath = "res://scenes/Maps/resources/gate_resource.tres"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pums4")

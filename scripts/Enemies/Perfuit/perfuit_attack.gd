@@ -23,7 +23,7 @@ func _update(_delta : float):
 		perfuit.sprite.flip_h = true
 
 func _exit():
-	perfuit.transTime = .55
+	perfuit.transTime = 1
 
 func _pounce():
 	perfuit.speed = 300

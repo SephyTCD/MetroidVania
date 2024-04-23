@@ -17,6 +17,12 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 [autoload]
 
 Globals="*res://globals.gd"
+CheckPoint="*res://scripts/misc/check_point.gd"
+PersistResource="*res://scripts/misc/persist_resource.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 

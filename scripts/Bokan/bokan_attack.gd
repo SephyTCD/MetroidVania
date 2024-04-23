@@ -45,7 +45,7 @@ func _process(_delta):
 				animSwap = 1
 				anim = "paper_throw_1"
 		
-		if player.facing == 1:
+		if player.facing == 1 and stateMachine.current_state != bokan_wall_run:
 			player.animations.play(anim)
 			player.sprite.flip_h = false
 		if player.facing == -1:
@@ -63,4 +63,3 @@ func _process(_delta):
 
 func _animUnlock():
 	player.animLock = 0
-

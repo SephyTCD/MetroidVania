@@ -4,6 +4,7 @@ class_name bokan_wall_jump
 var time = .20
 
 func _enter():
+	player.speed = 200
 	player.facing *= -1
 	if player.facing == -1:
 		player.animations.play("wall_kick")
